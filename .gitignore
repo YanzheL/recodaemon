@@ -1,0 +1,6 @@
+.idea
+*.log
+/target/
+!/target/*.jar
+.DS_Store
+*.tgz

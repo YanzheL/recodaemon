@@ -1,0 +1,15 @@
+syntax = "proto3";
+option java_package = "org.yanzhe.robomaster.recodaemon.net.proto";
+option java_outer_classname = "TargetCellsProto";
+option optimize_for = LITE_RUNTIME;
+import "google/protobuf/wrappers.proto";
+package google.protobuf;
+message TargetCells {
+    message Cell {
+        UInt64Value seq = 1;
+        UInt32Value goal = 2;
+        Int32Value pos = 3;
+        bytes img = 4;
+    }
+    repeated Cell cells = 1;
+}
