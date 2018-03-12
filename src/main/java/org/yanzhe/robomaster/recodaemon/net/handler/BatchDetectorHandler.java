@@ -3,7 +3,7 @@ package org.yanzhe.robomaster.recodaemon.net.handler;
 import com.google.protobuf.Int32Value;
 import com.google.protobuf.UInt32Value;
 import com.google.protobuf.UInt64Value;
-import org.yanzhe.robomaster.recodaemon.core.DigitRecognitor;
+import org.yanzhe.robomaster.recodaemon.core.DigitRecognizer;
 import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
 public class BatchDetectorHandler extends DetectorHandler {
   protected final boolean toBinary;
 
-  public BatchDetectorHandler(DigitRecognitor recognitor, boolean sync, boolean toBinary) {
+  public BatchDetectorHandler(DigitRecognizer recognitor, boolean sync, boolean toBinary) {
     super(recognitor, sync);
     this.toBinary = toBinary;
   }
@@ -35,7 +35,7 @@ public class BatchDetectorHandler extends DetectorHandler {
     int i = 0;
     float bestProba = 0;
     for (float[] prob : probas) {
-      float[] oneBest = DigitRecognitor.findMaxPos(prob);
+      float[] oneBest = DigitRecognizer.findMaxPos(prob);
       if ((int) oneBest[0] == goal) {
         if (oneBest[1] > bestProba) {
           bestPos = i;
@@ -44,7 +44,7 @@ public class BatchDetectorHandler extends DetectorHandler {
       }
       ++i;
     }
-//    if (bestPos >= 0) DigitRecognitor.showImgMat(imgBatch[bestPos]);
+//    if (bestPos >= 0) DigitRecognizer.showImgMat(imgBatch[bestPos]);
     logger.info("bestPos = {}", bestPos);
 
     return Cell.newBuilder()

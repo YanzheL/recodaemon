@@ -10,12 +10,12 @@ import java.util.Iterator;
 
 @Test(singleThreaded = true)
 public class TestDigitRecognizor {
-  private DigitRecognitor reco;
+    private DigitRecognizer reco;
   private MnistReader reader;
 
   //    @BeforeMethod
   TestDigitRecognizor() {
-    reco = new DigitRecognitor("mnist", "serve", 28);
+      reco = new DigitRecognizer("mnist", "serve", 28);
     reader =
         //        new MnistReader(
         //            "data/t10k-labels-idx1-ubyte.idx1-ubyte",
@@ -39,7 +39,7 @@ public class TestDigitRecognizor {
   }
 
   @AfterClass
-  public void close() throws Exception {
+  public void close() {
     reco.close();
   }
 }

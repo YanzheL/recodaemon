@@ -2,8 +2,7 @@ package org.yanzhe.robomaster.recodaemon.net.handler;
 
 import io.netty.channel.embedded.EmbeddedChannel;
 import org.testng.annotations.Test;
-import org.yanzhe.robomaster.recodaemon.core.DigitRecognitor;
-import org.yanzhe.robomaster.recodaemon.net.ProtoBufInitializer;
+import org.yanzhe.robomaster.recodaemon.core.DigitRecognizer;
 import org.yanzhe.robomaster.recodaemon.net.RecoHandlersInitializer;
 import org.yanzhe.robomaster.recodaemon.net.TargetCellsProvider;
 import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells;
@@ -12,18 +11,18 @@ import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.C
 @Test(singleThreaded = true)
 public class TestDetectorHandler {
   private DetectorHandler dh;
-  private DigitRecognitor recognitor;
+    private DigitRecognizer recognitor;
   EmbeddedChannel channel;
 
   TestDetectorHandler() {
-    recognitor = new DigitRecognitor("models/mnist");
+      recognitor = new DigitRecognizer("models/mnist");
     //    channel = new EmbeddedChannel(new BatchDetectorHandler(recognitor, true));
 //    channel = new EmbeddedChannel(new BatchDetectorHandler(recognitor, true));
     channel = new EmbeddedChannel(new DebugHandler(),new RecoHandlersInitializer(recognitor));
   }
 
   @Test(dataProvider = "targetCells", dataProviderClass = TargetCellsProvider.class)
-  public void testFastDetectorHandler(TargetCells msg) throws Exception {
+  public void testFastDetectorHandler(TargetCells msg) {
     channel.writeInbound(msg);
     //    Assert.assertTrue(channel.writeInbound(msg));
     //    System.out.println(msg);

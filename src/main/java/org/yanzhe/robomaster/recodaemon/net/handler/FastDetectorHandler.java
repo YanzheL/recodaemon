@@ -1,7 +1,7 @@
 package org.yanzhe.robomaster.recodaemon.net.handler;
 
 import com.google.protobuf.Int32Value;
-import org.yanzhe.robomaster.recodaemon.core.DigitRecognitor;
+import org.yanzhe.robomaster.recodaemon.core.DigitRecognizer;
 import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell;
 
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 public class FastDetectorHandler extends DetectorHandler {
   protected final boolean toBinary;
 
-  public FastDetectorHandler(DigitRecognitor recognitor, boolean sync, boolean toBinary) {
+  public FastDetectorHandler(DigitRecognizer recognitor, boolean sync, boolean toBinary) {
     super(recognitor, sync);
     this.toBinary = toBinary;
   }
@@ -22,7 +22,7 @@ public class FastDetectorHandler extends DetectorHandler {
 //      int predict=1;
       int predict = recognitor.predict(imgData, toBinary);
       logger.debug("This is {}", predict);
-//      DigitRecognitor.showImgMat(imgData);
+//      DigitRecognizer.showImgMat(imgData);
       if (goal == predict) {
         return cell.toBuilder().clearImg().build();
       }

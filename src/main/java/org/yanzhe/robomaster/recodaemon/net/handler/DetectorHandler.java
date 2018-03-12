@@ -6,27 +6,26 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.yanzhe.robomaster.recodaemon.core.DigitRecognitor;
+import org.yanzhe.robomaster.recodaemon.core.DigitRecognizer;
 import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells;
 import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell;
 
 import java.util.List;
 
-//@ChannelHandler.Sharable
+// @ChannelHandler.Sharable
 public abstract class DetectorHandler extends SimpleChannelInboundHandler<TargetCells> {
-  protected static DigitRecognitor recognitor;
-  protected static DefaultEventExecutorGroup eventExecutors;
+  protected static DigitRecognizer recognitor;
+  protected static DefaultEventExecutorGroup eventExecutors = new DefaultEventExecutorGroup(12);
   protected boolean sync;
   protected static Logger logger = LogManager.getLogger(DetectorHandler.class);
 
-  public DetectorHandler(DigitRecognitor recognitor) {
+  public DetectorHandler(DigitRecognizer recognitor) {
     this(recognitor, true);
   }
 
-  public DetectorHandler(DigitRecognitor recognitor, boolean sync) {
+  public DetectorHandler(DigitRecognizer recognitor, boolean sync) {
     DetectorHandler.recognitor = recognitor;
     this.sync = sync;
-    if (!this.sync) eventExecutors = new DefaultEventExecutorGroup(12);
     //        logger.debug("Instance created");
   }
 
@@ -35,7 +34,7 @@ public abstract class DetectorHandler extends SimpleChannelInboundHandler<Target
     //        logger.debug("Channel Read");
     if (sync) syncRead(ctx, targetCells);
     else asyncRead(ctx, targetCells);
-//    System.gc();
+    //    System.gc();
   }
 
   private void syncRead(ChannelHandlerContext ctx, TargetCells targetCells) {
@@ -43,13 +42,13 @@ public abstract class DetectorHandler extends SimpleChannelInboundHandler<Target
     List<Cell> cells = targetCells.getCellsList();
     long t1 = System.currentTimeMillis();
     Cell resultCell = detect(cells);
-//    Cell resultCell=cells.get(0);
+    //    Cell resultCell=cells.get(0);
     long t2 = System.currentTimeMillis();
 
     logger.debug("Batch size = {}, Time used = {} ms\n", cells.size(), t2 - t1);
     ChannelFuture future = ctx.writeAndFlush(resultCell);
-//    future.addListener(ChannelFutureListener.CLOSE);
-//    ctx.fireChannelReadComplete();
+    //    future.addListener(ChannelFutureListener.CLOSE);
+    //    ctx.fireChannelReadComplete();
   }
 
   private void asyncRead(ChannelHandlerContext ctx, TargetCells targetCells) {

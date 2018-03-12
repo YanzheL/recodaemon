@@ -5,6 +5,7 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.ServerChannel;
 import io.netty.channel.epoll.EpollEventLoopGroup;
+import io.netty.channel.epoll.EpollServerDomainSocketChannel;
 import io.netty.channel.epoll.EpollServerSocketChannel;
 import io.netty.channel.kqueue.KQueueEventLoopGroup;
 import io.netty.channel.kqueue.KQueueServerDomainSocketChannel;
@@ -16,34 +17,32 @@ import io.netty.util.concurrent.Future;
 import org.apache.commons.lang3.SystemUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.tensorflow.TensorFlow;
-import org.yanzhe.robomaster.recodaemon.core.DigitRecognitor;
+import org.yanzhe.robomaster.recodaemon.core.DigitRecognizer;
 
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 
 public class RecoBoot {
-  protected DigitRecognitor recognitor;
+  protected DigitRecognizer recognitor;
   protected EventLoopGroup eventLoopGroup;
   protected static Logger logger = LogManager.getLogger(RecoBoot.class);
 
   public RecoBoot() {
-    recognitor = new DigitRecognitor("models/mnist");
+    recognitor = new DigitRecognizer("models/mnist");
   }
 
-    public static void main(String[] args) {
-        //
-        // System.load("/home/trinity/IdeaProjects/recodaemon/src/main/java/resources/lib/tensorflow/libtensorflow_jni.so");
-//            System.loadLibrary("tensorflow_jni");
-        //    System.out.println(System.mapLibraryName("tensorflow_jni"));
-        logger.info("Tensorflow version = {}", TensorFlow.version());
-        RecoBoot boot = new RecoBoot();
-        try {
-            boot.bootstrap();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+  public static void main(String[] args) {
+    //
+    // System.load("/home/trinity/IdeaProjects/recodaemon/src/main/java/resources/lib/tensorflow/libtensorflow_jni.so");
+    //            System.loadLibrary("tensorflow_jni");
+    //    System.out.println(System.mapLibraryName("tensorflow_jni"));
+    RecoBoot boot = new RecoBoot();
+    try {
+      boot.bootstrap();
+    } catch (Exception e) {
+      e.printStackTrace();
     }
+  }
 
   public void bootstrap() {
     if (SystemUtils.IS_OS_MAC) {
@@ -59,7 +58,7 @@ public class RecoBoot {
     Runtime.getRuntime().addShutdownHook(new Thread(() -> shutdown(true)));
   }
 
-    private void bootBSD(String sockpath, int port) {
+  private void bootBSD(String sockpath, int port) {
     logger.info("Now booting for BSD...");
     logger.info("Listening on port {}, Domain socks path = {}", port, sockpath);
     eventLoopGroup = new KQueueEventLoopGroup();
@@ -67,13 +66,12 @@ public class RecoBoot {
     boot(eventLoopGroup, KQueueServerDomainSocketChannel.class, new DomainSocketAddress(sockpath));
   }
 
-    private void bootLinux(String sockpath, int port) {
+  private void bootLinux(String sockpath, int port) {
     logger.info("Now booting for Linux...");
     logger.info("Listening on port {}, Domain socks path = {}", port, sockpath);
     eventLoopGroup = new EpollEventLoopGroup();
     boot(eventLoopGroup, EpollServerSocketChannel.class, new InetSocketAddress(port));
-        //    boot(eventLoopGroup, EpollServerDomainSocketChannel.class, new
-        // DomainSocketAddress(sockpath));
+    boot(eventLoopGroup, EpollServerDomainSocketChannel.class, new DomainSocketAddress(sockpath));
   }
 
   private void shutdown(boolean block) {
@@ -84,17 +82,18 @@ public class RecoBoot {
         future.sync();
         logger.info("Gracefully shutdown ok.");
         LogManager.shutdown();
+        recognitor.close();
         System.out.println("Gracefully shutdown ok, stdout");
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
   }
 
-    private void bootGeneral(int port) {
-        logger.info("Now booting for General...");
-        logger.info("Listening on port {}", port);
-        eventLoopGroup = new NioEventLoopGroup();
-        boot(eventLoopGroup, NioServerSocketChannel.class, new InetSocketAddress(port));
+  private void bootGeneral(int port) {
+    logger.info("Now booting for General...");
+    logger.info("Listening on port {}", port);
+    eventLoopGroup = new NioEventLoopGroup();
+    boot(eventLoopGroup, NioServerSocketChannel.class, new InetSocketAddress(port));
   }
 
   private ChannelFuture boot(
