@@ -2,7 +2,7 @@ package org.yanzhe.robomaster.recodaemon.net.handler;
 
 import io.netty.channel.embedded.EmbeddedChannel;
 import org.testng.annotations.Test;
-import org.yanzhe.robomaster.recodaemon.core.DigitRecognizer;
+import org.yanzhe.robomaster.recodaemon.core.PureDigitRecognizer;
 import org.yanzhe.robomaster.recodaemon.net.RecoHandlersInitializer;
 import org.yanzhe.robomaster.recodaemon.net.TargetCellsProvider;
 import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells;
@@ -11,11 +11,11 @@ import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.C
 @Test(singleThreaded = true)
 public class TestDetectorHandler {
   private DetectorHandler dh;
-    private DigitRecognizer recognitor;
+  private PureDigitRecognizer recognitor;
   EmbeddedChannel channel;
 
   TestDetectorHandler() {
-      recognitor = new DigitRecognizer("models/mnist");
+    recognitor = new PureDigitRecognizer("models/mnist");
     //    channel = new EmbeddedChannel(new BatchDetectorHandler(recognitor, true));
 //    channel = new EmbeddedChannel(new BatchDetectorHandler(recognitor, true));
     channel = new EmbeddedChannel(new DebugHandler(),new RecoHandlersInitializer(recognitor));

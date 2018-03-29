@@ -1,11 +1,9 @@
 package org.yanzhe.robomaster.recodaemon.net.handler;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler.Sharable;
-import io.netty.channel.*;
-import org.omg.Messaging.SYNC_WITH_TRANSPORT;
-import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelOutboundHandlerAdapter;
+import io.netty.channel.ChannelPromise;
 
 @Sharable
 public class DebugHandler extends ChannelOutboundHandlerAdapter {
@@ -32,7 +30,7 @@ public class DebugHandler extends ChannelOutboundHandlerAdapter {
 //    }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
         System.out.println(cause.getMessage());
         cause.printStackTrace();
     }

@@ -13,22 +13,25 @@ import io.netty.channel.kqueue.KQueueServerSocketChannel;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.unix.DomainSocketAddress;
+import io.netty.util.Version;
 import io.netty.util.concurrent.Future;
 import org.apache.commons.lang3.SystemUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.yanzhe.robomaster.recodaemon.core.DigitRecognizer;
+import org.yanzhe.robomaster.recodaemon.core.DetectorFactory;
+import org.yanzhe.robomaster.recodaemon.core.FireDigitRecognizer;
+import org.yanzhe.robomaster.recodaemon.core.ImageClassifier;
 
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 
 public class RecoBoot {
-  protected DigitRecognizer recognitor;
+  protected ImageClassifier recognitor;
   protected EventLoopGroup eventLoopGroup;
   protected static Logger logger = LogManager.getLogger(RecoBoot.class);
 
   public RecoBoot() {
-    recognitor = new DigitRecognizer("models/mnist");
+    recognitor = DetectorFactory.provide(FireDigitRecognizer.class, "models/mnist_cnn");
   }
 
   public static void main(String[] args) {
@@ -36,11 +39,15 @@ public class RecoBoot {
     // System.load("/home/trinity/IdeaProjects/recodaemon/src/main/java/resources/lib/tensorflow/libtensorflow_jni.so");
     //            System.loadLibrary("tensorflow_jni");
     //    System.out.println(System.mapLibraryName("tensorflow_jni"));
+    logger.info("App booting...");
+    logger.info("Netty versions:");
+    Version.identify().forEach((k, v) -> logger.info("{} = {}", k, v));
     RecoBoot boot = new RecoBoot();
     try {
       boot.bootstrap();
+      logger.info("Boot success");
     } catch (Exception e) {
-      e.printStackTrace();
+      logger.error("Boot exception <{}>, message: {}", e, e.getMessage());
     }
   }
 
@@ -80,11 +87,11 @@ public class RecoBoot {
     if (block)
       try {
         future.sync();
+        recognitor.close();
         logger.info("Gracefully shutdown ok.");
         LogManager.shutdown();
-        recognitor.close();
         System.out.println("Gracefully shutdown ok, stdout");
-      } catch (InterruptedException e) {
+      } catch (Exception e) {
         e.printStackTrace();
       }
   }

@@ -10,12 +10,12 @@ import java.util.Iterator;
 
 @Test(singleThreaded = true)
 public class TestDigitRecognizor {
-    private DigitRecognizer reco;
+  private PureDigitRecognizer reco;
   private MnistReader reader;
 
   //    @BeforeMethod
   TestDigitRecognizor() {
-      reco = new DigitRecognizer("mnist", "serve", 28);
+    reco = new PureDigitRecognizer("mnist", "serve", 28);
     reader =
         //        new MnistReader(
         //            "data/t10k-labels-idx1-ubyte.idx1-ubyte",
@@ -35,7 +35,7 @@ public class TestDigitRecognizor {
     successPercentage = 90
   )
   public void testRecognize(byte[] imgData, int label) {
-    Assert.assertEquals(reco.predict(imgData, true), label);
+    Assert.assertEquals(reco.predict(imgData), label);
   }
 
   @AfterClass
