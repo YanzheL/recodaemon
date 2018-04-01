@@ -6,7 +6,8 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.yanzhe.robomaster.recodaemon.core.ImageClassifier;
+import org.yanzhe.robomaster.recodaemon.core.classifier.ImageClassifier;
+import org.yanzhe.robomaster.recodaemon.core.processor.ImageProcessor;
 import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells;
 import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell;
 
@@ -14,17 +15,15 @@ import java.util.List;
 
 // @ChannelHandler.Sharable
 public abstract class DetectorHandler extends SimpleChannelInboundHandler<TargetCells> {
-  protected static ImageClassifier recognitor;
+    protected static ImageClassifier classifier;
+    protected static ImageProcessor processor;
   protected static DefaultEventExecutorGroup eventExecutors = new DefaultEventExecutorGroup(12);
   protected boolean sync;
   protected static Logger logger = LogManager.getLogger(DetectorHandler.class);
 
-  public DetectorHandler(ImageClassifier recognitor) {
-    this(recognitor, true);
-  }
-
-  public DetectorHandler(ImageClassifier recognitor, boolean sync) {
-    DetectorHandler.recognitor = recognitor;
+    public DetectorHandler(ImageClassifier classifier, ImageProcessor processor, boolean sync) {
+        DetectorHandler.classifier = classifier;
+        DetectorHandler.processor = processor;
     this.sync = sync;
     //        logger.debug("Instance created");
   }

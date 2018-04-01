@@ -1,15 +1,17 @@
 syntax = "proto3";
+package org.yanzhe.robomaster.recodaemon.net.proto;
 option java_package = "org.yanzhe.robomaster.recodaemon.net.proto";
 option java_outer_classname = "TargetCellsProto";
 option optimize_for = LITE_RUNTIME;
-import "google/protobuf/wrappers.proto";
-package google.protobuf;
+option cc_enable_arenas = true;
+import public "google/protobuf/wrappers.proto";
+import public "org/yanzhe/robomaster/recodaemon/net/proto/Image.proto";
 message TargetCells {
     message Cell {
-        UInt64Value seq = 1;
-        UInt32Value goal = 2;
-        Int32Value pos = 3;
-        bytes img = 4;
+        google.protobuf.UInt64Value seq = 1;
+        google.protobuf.UInt32Value goal = 2;
+        google.protobuf.Int32Value pos = 3;
+        Image img = 4;
     }
     repeated Cell cells = 1;
 }

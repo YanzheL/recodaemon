@@ -1,6 +1,5 @@
 package org.yanzhe.robomaster.recodaemon.net;
 
-import com.google.protobuf.ByteString;
 import com.google.protobuf.Int32Value;
 import com.google.protobuf.UInt32Value;
 import com.google.protobuf.UInt64Value;
@@ -55,7 +54,7 @@ public class TargetCellsProvider implements Iterator<Object[]>, Iterable<Object[
           TargetCells.Cell.newBuilder()
               .setPos(Int32Value.newBuilder().setValue(ct).build())
               .setGoal(UInt32Value.newBuilder().setValue(7).build())
-              .setImg(ByteString.copyFrom(imgData))
+//              .setImg(ByteString.copyFrom(imgData))
               .setSeq(UInt64Value.newBuilder().setValue(count).build())
               .build();
       batchBuilder.addCells(cell);

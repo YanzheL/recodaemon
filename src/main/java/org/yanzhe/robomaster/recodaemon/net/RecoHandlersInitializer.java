@@ -6,8 +6,9 @@ import io.netty.channel.ChannelPipeline;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.yanzhe.robomaster.recodaemon.core.DetectorFactory;
-import org.yanzhe.robomaster.recodaemon.core.FireDigitRecognizer;
-import org.yanzhe.robomaster.recodaemon.core.ImageClassifier;
+import org.yanzhe.robomaster.recodaemon.core.classifier.CnnDigitClassifier;
+import org.yanzhe.robomaster.recodaemon.core.classifier.ImageClassifier;
+import org.yanzhe.robomaster.recodaemon.core.processor.FirePurifyProcessor;
 import org.yanzhe.robomaster.recodaemon.net.handler.FastDetectorHandler;
 import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto;
 
@@ -16,7 +17,7 @@ public class RecoHandlersInitializer extends ChannelInitializer {
   protected static Logger logger = LogManager.getLogger(RecoHandlersInitializer.class);
 
   public RecoHandlersInitializer(String modelDir) {
-    recognitor = DetectorFactory.provide(FireDigitRecognizer.class, modelDir);
+      recognitor = DetectorFactory.provide(CnnDigitClassifier.class, modelDir);
   }
 
   public RecoHandlersInitializer(ImageClassifier recognitor) {
@@ -27,8 +28,8 @@ public class RecoHandlersInitializer extends ChannelInitializer {
   protected void initChannel(Channel ch) {
     ChannelPipeline pipline = ch.pipeline();
     pipline.addLast(new ProtoBufInitializer(TargetCellsProto.TargetCells.getDefaultInstance()));
-    pipline.addLast(new FastDetectorHandler(recognitor, true));
-//    pipline.addLast(new DefaultEventExecutorGroup(8), new BatchDetectorHandler(recognitor, false));
+      pipline.addLast(new FastDetectorHandler(recognitor, new FirePurifyProcessor(), true));
+//    pipline.addLast(new DefaultEventExecutorGroup(8), new BatchDetectorHandler(classifier, false));
 //    pipline.addLast(new EnqueHandler());
     logger.debug("Channel initialized");
   }

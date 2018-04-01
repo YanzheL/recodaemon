@@ -19,8 +19,8 @@ import org.apache.commons.lang3.SystemUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.yanzhe.robomaster.recodaemon.core.DetectorFactory;
-import org.yanzhe.robomaster.recodaemon.core.FireDigitRecognizer;
-import org.yanzhe.robomaster.recodaemon.core.ImageClassifier;
+import org.yanzhe.robomaster.recodaemon.core.classifier.CnnDigitClassifier;
+import org.yanzhe.robomaster.recodaemon.core.classifier.ImageClassifier;
 
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
@@ -31,7 +31,7 @@ public class RecoBoot {
   protected static Logger logger = LogManager.getLogger(RecoBoot.class);
 
   public RecoBoot() {
-    recognitor = DetectorFactory.provide(FireDigitRecognizer.class, "models/mnist_cnn");
+      recognitor = DetectorFactory.provide(CnnDigitClassifier.class, "models/mnist_cnn");
   }
 
   public static void main(String[] args) {

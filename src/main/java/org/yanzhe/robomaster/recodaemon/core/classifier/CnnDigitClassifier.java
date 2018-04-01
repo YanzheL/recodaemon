@@ -1,4 +1,4 @@
-package org.yanzhe.robomaster.recodaemon.core;
+package org.yanzhe.robomaster.recodaemon.core.classifier;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,18 +12,18 @@ import java.nio.FloatBuffer;
 
 import static org.yanzhe.robomaster.recodaemon.core.utils.CoreUtils.writeToInputBuf;
 
-public class PureDigitRecognizer extends AbstractImageClassifier {
-    private static Logger logger = LogManager.getLogger(PureDigitRecognizer.class);
-    private final int imgSize;
+public class CnnDigitClassifier extends AbstractImageClassifier {
+    private static Logger logger = LogManager.getLogger(CnnDigitClassifier.class);
+    private final int imgSize = 28;
     private Session sess;
     private SavedModelBundle model;
     private float[] inputSpace;
 
-    public PureDigitRecognizer(String modelDir) {
-        this(modelDir, "serve", 28);
+    public CnnDigitClassifier(String modelDir) {
+        this(modelDir, "serve");
     }
 
-    public PureDigitRecognizer(String modelDir, String tags, int imgSize) {
+    public CnnDigitClassifier(String modelDir, String tags) {
         logger.info("Tensorflow version = {}", TensorFlow.version());
         this.model = SavedModelBundle.load(modelDir, tags);
 //    Iterator<Operation> ops=model.graph().operations();
@@ -31,7 +31,6 @@ public class PureDigitRecognizer extends AbstractImageClassifier {
 //      System.out.println(ops.next());
 //    }
         this.sess = this.model.session();
-        this.imgSize = imgSize;
         inputSpace = new float[9 * imgSize * imgSize];
     }
 
@@ -58,7 +57,7 @@ public class PureDigitRecognizer extends AbstractImageClassifier {
         //                    "data/train-labels-idx1-ubyte.idx1-ubyte",
         // "data/train-images-idx3-ubyte.idx3-ubyte");
         int testSize = 0, correctCt = 0;
-        try (PureDigitRecognizer reco = new PureDigitRecognizer("mnist", "serve", 28)) {
+        try (CnnDigitClassifier reco = new CnnDigitClassifier("mnist", "serve")) {
             long startTime = System.currentTimeMillis();
             for (Object pair : mrTest) {
                 ++testSize;
@@ -131,6 +130,11 @@ public class PureDigitRecognizer extends AbstractImageClassifier {
         result.close();
         inputTensor.close();
         return probas;
+    }
+
+    @Override
+    public int acceptSize() {
+        return imgSize;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package org.yanzhe.robomaster.recodaemon.core;
+package org.yanzhe.robomaster.recodaemon.core.classifier;
 
 public interface ImageClassifier extends AutoCloseable {
     int predict(byte[] imgData);
@@ -11,4 +11,5 @@ public interface ImageClassifier extends AutoCloseable {
 
     float[][] proba(byte[][] imgBatch, int batchSize, float[][] dst);
 
+    int acceptSize();
 }

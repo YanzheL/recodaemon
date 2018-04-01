@@ -3,7 +3,8 @@ package org.yanzhe.robomaster.recodaemon.net.handler;
 import com.google.protobuf.Int32Value;
 import com.google.protobuf.UInt32Value;
 import com.google.protobuf.UInt64Value;
-import org.yanzhe.robomaster.recodaemon.core.ImageClassifier;
+import org.yanzhe.robomaster.recodaemon.core.classifier.ImageClassifier;
+import org.yanzhe.robomaster.recodaemon.core.processor.ImageProcessor;
 import org.yanzhe.robomaster.recodaemon.core.utils.CoreUtils;
 import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell;
 
@@ -11,8 +12,8 @@ import java.util.List;
 
 public class BatchDetectorHandler extends DetectorHandler {
 
-  public BatchDetectorHandler(ImageClassifier recognitor, boolean sync) {
-    super(recognitor, sync);
+  public BatchDetectorHandler(ImageClassifier recognitor, ImageProcessor processor, boolean sync) {
+    super(recognitor, processor, sync);
   }
 
   @Override
@@ -30,7 +31,7 @@ public class BatchDetectorHandler extends DetectorHandler {
     }
     float[][] probas = new float[batchSize][10];
 
-    recognitor.proba(imgBatch, batchSize, probas);
+    classifier.proba(imgBatch, batchSize, probas);
     int i = 0;
     float bestProba = 0;
     for (float[] prob : probas) {
@@ -43,7 +44,7 @@ public class BatchDetectorHandler extends DetectorHandler {
       }
       ++i;
     }
-//    if (bestPos >= 0) PureDigitRecognizer.showImgMat(imgBatch[bestPos]);
+//    if (bestPos >= 0) CnnDigitClassifier.showImgMat(imgBatch[bestPos]);
     logger.info("bestPos = {}", bestPos);
 
     return Cell.newBuilder()

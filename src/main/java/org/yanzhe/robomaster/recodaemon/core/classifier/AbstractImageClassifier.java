@@ -1,10 +1,11 @@
-package org.yanzhe.robomaster.recodaemon.core;
+package org.yanzhe.robomaster.recodaemon.core.classifier;
 
 import org.yanzhe.robomaster.recodaemon.core.utils.CoreUtils;
 
 import java.util.Arrays;
+import java.util.Collections;
 
-public abstract class AbstractImageClassifier implements ImageClassifier, AutoCloseable {
+public abstract class AbstractImageClassifier implements ImageClassifier {
     @Override
     public int predict(byte[] imgData) {
         int[] predictions = new int[1];
@@ -22,17 +23,16 @@ public abstract class AbstractImageClassifier implements ImageClassifier, AutoCl
 
     @Override
     public float[] proba(byte[] imgData, float[][] dst) {
-        return proba(Arrays.asList(imgData), 1, dst)[0];
+        return proba(Collections.singletonList(imgData), 1, dst)[0];
     }
 
     @Override
     public float[][] proba(byte[][] imgBatch, int batchSize, float[][] dst) {
         return proba(Arrays.asList(imgBatch), batchSize, dst);
     }
+    //    @Override
+//    public abstract float[][] proba(Iterable<byte[]> imgBatch, int batchSize, float[][] dst);
 
-    @Override
-    public abstract float[][] proba(Iterable<byte[]> imgBatch, int batchSize, float[][] dst);
-
-    @Override
-    public abstract void close();
+//    @Override
+//    public abstract void close();
 }

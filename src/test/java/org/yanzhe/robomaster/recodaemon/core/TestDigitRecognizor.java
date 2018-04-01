@@ -4,18 +4,19 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.yanzhe.robomaster.recodaemon.core.classifier.CnnDigitClassifier;
 import org.yanzhe.robomaster.recodaemon.utils.MnistReader;
 
 import java.util.Iterator;
 
 @Test(singleThreaded = true)
 public class TestDigitRecognizor {
-  private PureDigitRecognizer reco;
+    private CnnDigitClassifier reco;
   private MnistReader reader;
 
   //    @BeforeMethod
   TestDigitRecognizor() {
-    reco = new PureDigitRecognizer("mnist", "serve", 28);
+      reco = new CnnDigitClassifier("mnist", "serve");
     reader =
         //        new MnistReader(
         //            "data/t10k-labels-idx1-ubyte.idx1-ubyte",
