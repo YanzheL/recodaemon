@@ -1,87 +1,107 @@
 package org.yanzhe.robomaster.recodaemon.net.handler;
 
-import io.netty.channel.ChannelFuture;
+import com.google.protobuf.Any;
+import com.google.protobuf.InvalidProtocolBufferException;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
+import io.netty.util.concurrent.Future;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.yanzhe.robomaster.recodaemon.core.classifier.CnnDigitClassifier;
-import org.yanzhe.robomaster.recodaemon.core.classifier.ImageClassifier;
 import org.yanzhe.robomaster.recodaemon.core.processor.DefaultImageProcessor;
 import org.yanzhe.robomaster.recodaemon.core.processor.FirePurifyProcessor;
-import org.yanzhe.robomaster.recodaemon.core.processor.ImageProcessor;
 import org.yanzhe.robomaster.recodaemon.net.detector.Detector;
-import org.yanzhe.robomaster.recodaemon.net.detector.FastDetector;
-import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto;
-import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells;
-import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell;
-
-import java.util.List;
+import org.yanzhe.robomaster.recodaemon.net.detector.FastCellsDetector;
+import org.yanzhe.robomaster.recodaemon.net.detector.LedDetector;
+import org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RecoMethod;
+import org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RpcRequest;
+import org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RpcResponse;
+import org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Status;
 
 // @ChannelHandler.Sharable
-public class DetectorHandler extends SimpleChannelInboundHandler<TargetCells> {
-  protected static ImageClassifier classifier;
-  protected static ImageProcessor processor;
-  protected static DefaultEventExecutorGroup eventExecutors = new DefaultEventExecutorGroup(12);
+public class DetectorHandler extends SimpleChannelInboundHandler<RpcRequest> {
   protected boolean sync;
   protected static Logger logger = LogManager.getLogger(DetectorHandler.class);
-  public Detector detector;
+  protected RecoMethod lastMethod = RecoMethod.RECO_SIMPLE_HW_DIGIT;
+  protected Detector detector;
+  protected DefaultEventExecutorGroup eventExecutors = new DefaultEventExecutorGroup(12);
+  protected int callerId;
 
-  public DetectorHandler(ImageClassifier classifier, ImageProcessor processor, boolean sync) {
-    DetectorHandler.classifier = classifier;
-    DetectorHandler.processor = processor;
+  public DetectorHandler(boolean sync) {
     this.sync = sync;
-    //        logger.debug("Instance created");
+  }
+
+  protected static RpcResponse getErrorResponse(int callerId, Throwable e) {
+    return composeResponse(callerId, getErrorCode(e), Any.getDefaultInstance());
+  }
+
+  protected static Status getErrorCode(Throwable cause) {
+    if (cause instanceof InvalidProtocolBufferException)
+      return Status.BAD_REQUEST_PROTO;
+    else if (cause instanceof NoSuchMethodException)
+      return Status.METHOD_NOT_FOUND;
+    else if (cause instanceof NullPointerException)
+      return Status.RPC_ERROR;
+    else
+      return Status.UNRECOGNIZED;
+  }
+
+  protected static RpcResponse composeResponse(int callerId, Status status, Any body) {
+    return RpcResponse.newBuilder()
+            .setCallerId(callerId)
+            .setStatus(status)
+            .setData(body)
+            .build();
   }
 
   @Override
-  protected void channelRead0(ChannelHandlerContext ctx, TargetCells targetCells) {
+  protected void channelRead0(ChannelHandlerContext channelHandlerContext, RpcRequest rpcRequest) throws Exception {
     //        logger.debug("Channel Read");
-    TargetCellsProto.RecoMethod method = targetCells.getMethod();
-    if (detector == null) {
+    callerId = rpcRequest.getCallerId();
+    RecoMethod method = rpcRequest.getMethod();
+//    logger.debug("Method = {}",method);
+    if (detector == null || method != lastMethod) {
       switch (method) {
-        case FIRE:
-          detector = new FastDetector(CnnDigitClassifier.class, FirePurifyProcessor.class);
+        case RECO_FIRE_HW_DIGIT:
+          detector = new FastCellsDetector(CnnDigitClassifier.class, FirePurifyProcessor.class);
           break;
-        case SIMPLE:
-          detector = new FastDetector(CnnDigitClassifier.class, DefaultImageProcessor.class);
+        case RECO_SIMPLE_HW_DIGIT:
+          detector = new FastCellsDetector(CnnDigitClassifier.class, DefaultImageProcessor.class);
           break;
+        case RECO_LED_DIGIT:
+          detector = new LedDetector();
+          break;
+        default:
+          throw new NoSuchMethodException("No such reco method");
       }
+      lastMethod = method;
     }
-    if (sync) syncRead(ctx, targetCells);
-    else asyncRead(ctx, targetCells);
-    //    System.gc();
+
+    Any body = rpcRequest.getData();
+
+    if (sync) {
+      Any result = detector.detect(body);
+      channelHandlerContext.writeAndFlush(composeResponse(callerId, Status.SUCCESS, result));
+    } else {
+      Future backrun = eventExecutors.submit(
+              () -> {
+                try {
+                  long t1 = System.currentTimeMillis();
+                  Any resultCell = detector.detect(body);
+                  long t2 = System.currentTimeMillis();
+                  channelHandlerContext.writeAndFlush(composeResponse(callerId, Status.SUCCESS, resultCell));
+                } catch (Exception e) {
+                  channelHandlerContext.writeAndFlush(getErrorResponse(callerId, e));
+                }
+
+              });
+    }
   }
 
-  private void syncRead(ChannelHandlerContext ctx, TargetCells targetCells) {
-
-    List<Cell> cells = targetCells.getCellsList();
-    long t1 = System.currentTimeMillis();
-    Cell resultCell = detector.detect(cells);
-    //    Cell resultCell=cells.get(0);
-    long t2 = System.currentTimeMillis();
-
-    logger.debug("Batch size = {}, Time used = {} ms\n", cells.size(), t2 - t1);
-    ChannelFuture future = ctx.writeAndFlush(resultCell);
-    //    future.addListener(ChannelFutureListener.CLOSE);
-    //    ctx.fireChannelReadComplete();
+  @Override
+  public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+//    logger.error("Caught exception ");
+    ctx.writeAndFlush(getErrorResponse(callerId, cause));
   }
-
-  private void asyncRead(ChannelHandlerContext ctx, TargetCells targetCells) {
-    //    System.out.println(targetCells);
-    List<Cell> cells = targetCells.getCellsList();
-    eventExecutors.submit(
-        () -> {
-          long t1 = System.currentTimeMillis();
-          Cell resultCell = detector.detect(cells);
-          ctx.writeAndFlush(resultCell);
-          long t2 = System.currentTimeMillis();
-          logger.debug("Batch size = {}, Time used = {} ms\n", cells.size(), t2 - t1);
-          //          logger.debug("Seq = {}, Goal = {}, Pos =
-          // {}",resultCell.getSeq().getValue(),resultCell.getGoal().getValue(),resultCell.getPos().getValue());
-        });
-  }
-
-  //  protected abstract Cell detect(List<Cell> cells);
 }

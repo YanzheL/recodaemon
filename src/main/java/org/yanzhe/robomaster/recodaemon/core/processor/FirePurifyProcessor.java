@@ -9,12 +9,13 @@ import static org.yanzhe.robomaster.recodaemon.core.processor.nativeimpl.NativeP
 public class FirePurifyProcessor implements ImageProcessor {
     //      public static final NativeFireProcessor processor=new NativeFireProcessor();
     private static Logger logger = LogManager.getLogger(FirePurifyProcessor.class);
+    private Mat result = new Mat();
 
     //    private static Mat img = imread("/home/trinity/CLionProjects/Num_opti/5.png", 0);
     @Override
     public Mat process(Mat src) {
 
-        Mat result = new Mat();
+
         long t1 = System.currentTimeMillis();
         NativeFireProcessor.process(src, result);
 //    imshow("r", result);

@@ -5,8 +5,8 @@ import org.testng.annotations.Test;
 import org.yanzhe.robomaster.recodaemon.core.classifier.CnnDigitClassifier;
 import org.yanzhe.robomaster.recodaemon.net.RecoHandlersInitializer;
 import org.yanzhe.robomaster.recodaemon.net.TargetCellsProvider;
+import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.Cell;
 import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells;
-import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell;
 
 @Test(singleThreaded = true)
 public class TestDetectorHandler {
@@ -18,7 +18,7 @@ public class TestDetectorHandler {
       recognitor = new CnnDigitClassifier("models/mnist");
       //    channel = new EmbeddedChannel(new BatchDetectorHandler(classifier, true));
 //    channel = new EmbeddedChannel(new BatchDetectorHandler(classifier, true));
-    channel = new EmbeddedChannel(new DebugHandler(),new RecoHandlersInitializer(recognitor));
+      channel = new EmbeddedChannel(new DebugHandler(), new RecoHandlersInitializer());
   }
 
   @Test(dataProvider = "targetCells", dataProviderClass = TargetCellsProvider.class)

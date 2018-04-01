@@ -9,7 +9,7 @@ import static org.bytedeco.javacpp.opencv_imgcodecs.imread;
 
 @Platform(
         include = "/home/trinity/CLionProjects/Num_opti/NativeProcessorLibrary.h",
-        define = "DEBUG_CHECK_SRC_IMG",
+//        define = "DEBUG_CHECK_SRC_IMG",
         link = "opencv_world"
 
 )

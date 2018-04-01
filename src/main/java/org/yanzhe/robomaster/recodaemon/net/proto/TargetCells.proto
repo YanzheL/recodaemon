@@ -5,19 +5,20 @@ option java_outer_classname = "TargetCellsProto";
 option optimize_for = SPEED;
 option cc_enable_arenas = true;
 import public "google/protobuf/wrappers.proto";
-import public "org/yanzhe/robomaster/recodaemon/net/proto/Image.proto";
+import public "Image.proto";
 message TargetCells {
-    message Cell {
-        google.protobuf.UInt64Value seq = 1;
-        google.protobuf.UInt32Value goal = 2;
-        google.protobuf.Int32Value pos = 3;
-        Image img = 4;
-    }
-    RecoMethod method = 1;
+    //    RecoMethod method = 1;
     repeated Cell cells = 2;
 }
 
-enum RecoMethod {
-    SIMPLE = 0;
-    FIRE = 1;
+message Cell {
+    google.protobuf.UInt64Value seq = 1;
+    google.protobuf.UInt32Value goal = 2;
+    google.protobuf.Int32Value pos = 3;
+    Image img = 4;
 }
+
+//enum RecoMethod {
+//    SIMPLE = 0;
+//    FIRE = 1;
+//}

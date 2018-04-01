@@ -18,21 +18,16 @@ import io.netty.util.concurrent.Future;
 import org.apache.commons.lang3.SystemUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.yanzhe.robomaster.recodaemon.core.classifier.ClassifierFactory;
-import org.yanzhe.robomaster.recodaemon.core.classifier.CnnDigitClassifier;
-import org.yanzhe.robomaster.recodaemon.core.classifier.ImageClassifier;
 
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 
 public class RecoBoot {
-  protected ImageClassifier recognitor;
   protected EventLoopGroup eventLoopGroup;
   protected static Logger logger = LogManager.getLogger(RecoBoot.class);
 
-  public RecoBoot() {
-    recognitor = ClassifierFactory.getDetector(CnnDigitClassifier.class);
-  }
+    public RecoBoot() {
+    }
 
   public static void main(String[] args) {
     //
@@ -87,7 +82,6 @@ public class RecoBoot {
     if (block)
       try {
         future.sync();
-        recognitor.close();
         logger.info("Gracefully shutdown ok.");
         LogManager.shutdown();
         System.out.println("Gracefully shutdown ok, stdout");
@@ -114,7 +108,7 @@ public class RecoBoot {
 
             //        .childHandler(new ProtoBufInitializer(TargetCells.getDefaultInstance()))
             //            .childHandler(new DebugHandler());
-        .childHandler(new RecoHandlersInitializer(recognitor));
+            .childHandler(new RecoHandlersInitializer());
     return bootstrap.bind(addr);
     //    future.sync();
   }

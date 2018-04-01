@@ -1,7 +1,6 @@
 package org.yanzhe.robomaster.recodaemon.utils;
 
-import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto;
-import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell;
+import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.Cell;
 
 import java.util.Comparator;
 

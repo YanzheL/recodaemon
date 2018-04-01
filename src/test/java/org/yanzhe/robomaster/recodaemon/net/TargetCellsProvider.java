@@ -4,6 +4,7 @@ import com.google.protobuf.Int32Value;
 import com.google.protobuf.UInt32Value;
 import com.google.protobuf.UInt64Value;
 import org.testng.annotations.DataProvider;
+import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.Cell;
 import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells;
 import org.yanzhe.robomaster.recodaemon.utils.MnistReader;
 
@@ -50,8 +51,8 @@ public class TargetCellsProvider implements Iterator<Object[]>, Iterable<Object[
     for (Object[] piece : reader) {
       byte[] imgData = (byte[]) piece[0];
       int label = (int) piece[1];
-      TargetCells.Cell cell =
-          TargetCells.Cell.newBuilder()
+        Cell cell =
+                Cell.newBuilder()
               .setPos(Int32Value.newBuilder().setValue(ct).build())
               .setGoal(UInt32Value.newBuilder().setValue(7).build())
 //              .setImg(ByteString.copyFrom(imgData))
