@@ -2,7 +2,7 @@ syntax = "proto3";
 package org.yanzhe.robomaster.recodaemon.net.proto;
 option java_package = "org.yanzhe.robomaster.recodaemon.net.proto";
 option java_outer_classname = "ImageProto";
-option optimize_for = LITE_RUNTIME;
+option optimize_for = SPEED;
 option cc_enable_arenas = true;
 import "google/protobuf/wrappers.proto";
 

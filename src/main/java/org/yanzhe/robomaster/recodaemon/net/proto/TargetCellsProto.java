@@ -8,396 +8,540 @@ public final class TargetCellsProto {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
   }
+
+  /**
+   * Protobuf enum {@code org.yanzhe.robomaster.recodaemon.net.proto.RecoMethod}
+   */
+  public enum RecoMethod
+          implements com.google.protobuf.Internal.EnumLite {
+    /**
+     * <code>SIMPLE = 0;</code>
+     */
+    SIMPLE(0),
+    /**
+     * <code>FIRE = 1;</code>
+     */
+    FIRE(1),
+    UNRECOGNIZED(-1),;
+
+    /**
+     * <code>SIMPLE = 0;</code>
+     */
+    public static final int SIMPLE_VALUE = 0;
+    /**
+     * <code>FIRE = 1;</code>
+     */
+    public static final int FIRE_VALUE = 1;
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+            RecoMethod> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<RecoMethod>() {
+              public RecoMethod findValueByNumber(int number) {
+                return RecoMethod.forNumber(number);
+              }
+            };
+    private final int value;
+
+    RecoMethod(int value) {
+      this.value = value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static RecoMethod valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static RecoMethod forNumber(int value) {
+      switch (value) {
+        case 0:
+          return SIMPLE;
+        case 1:
+          return FIRE;
+        default:
+          return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<RecoMethod>
+    internalGetValueMap() {
+      return internalValueMap;
+    }
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+                "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:org.yanzhe.robomaster.recodaemon.net.proto.RecoMethod)
+  }
+
   public interface TargetCellsOrBuilder extends
           // @@protoc_insertion_point(interface_extends:org.yanzhe.robomaster.recodaemon.net.proto.TargetCells)
           com.google.protobuf.MessageLiteOrBuilder {
 
     /**
-     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
+     * <code>.org.yanzhe.robomaster.recodaemon.net.proto.RecoMethod method = 1;</code>
      */
-    java.util.List<org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell> 
-        getCellsList();
+    int getMethodValue();
+
     /**
-     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
+     * <code>.org.yanzhe.robomaster.recodaemon.net.proto.RecoMethod method = 1;</code>
+     */
+    org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.RecoMethod getMethod();
+
+    /**
+     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+     */
+    java.util.List<org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell>
+    getCellsList();
+
+    /**
+     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
      */
     org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell getCells(int index);
+
     /**
-     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
+     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
      */
     int getCellsCount();
   }
   /**
    * Protobuf type {@code org.yanzhe.robomaster.recodaemon.net.proto.TargetCells}
    */
-  public  static final class TargetCells extends
+  public static final class TargetCells extends
           com.google.protobuf.GeneratedMessageLite<
                   TargetCells, TargetCells.Builder> implements
           // @@protoc_insertion_point(message_implements:org.yanzhe.robomaster.recodaemon.net.proto.TargetCells)
-      TargetCellsOrBuilder {
-      public static final int CELLS_FIELD_NUMBER = 1;
-      // @@protoc_insertion_point(class_scope:org.yanzhe.robomaster.recodaemon.net.proto.TargetCells)
-      private static final org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells DEFAULT_INSTANCE;
-      private static volatile com.google.protobuf.Parser<TargetCells> PARSER;
+          TargetCellsOrBuilder {
+    public static final int METHOD_FIELD_NUMBER = 1;
+    public static final int CELLS_FIELD_NUMBER = 2;
+    // @@protoc_insertion_point(class_scope:org.yanzhe.robomaster.recodaemon.net.proto.TargetCells)
+    private static final org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells DEFAULT_INSTANCE;
+    private static volatile com.google.protobuf.Parser<TargetCells> PARSER;
 
-      static {
-          DEFAULT_INSTANCE = new TargetCells();
-          DEFAULT_INSTANCE.makeImmutable();
+    static {
+      DEFAULT_INSTANCE = new TargetCells();
+      DEFAULT_INSTANCE.makeImmutable();
     }
 
-      private com.google.protobuf.Internal.ProtobufList<org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell> cells_;
+    private int bitField0_;
+    private int method_;
+    private com.google.protobuf.Internal.ProtobufList<org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell> cells_;
+
     private TargetCells() {
-        cells_ = emptyProtobufList();
+      cells_ = emptyProtobufList();
     }
 
-      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(
-              java.nio.ByteBuffer data)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-          return com.google.protobuf.GeneratedMessageLite.parseFrom(
-                  DEFAULT_INSTANCE, data);
-      }
-
-      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(
-              java.nio.ByteBuffer data,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-          return com.google.protobuf.GeneratedMessageLite.parseFrom(
-                  DEFAULT_INSTANCE, data, extensionRegistry);
+    public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
     }
 
-      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(
-              com.google.protobuf.ByteString data)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-          return com.google.protobuf.GeneratedMessageLite.parseFrom(
-                  DEFAULT_INSTANCE, data);
+    public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
     }
 
-      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(
-              com.google.protobuf.ByteString data,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-          return com.google.protobuf.GeneratedMessageLite.parseFrom(
-                  DEFAULT_INSTANCE, data, extensionRegistry);
-      }
+    public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+    }
 
-      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(byte[] data)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-          return com.google.protobuf.GeneratedMessageLite.parseFrom(
-                  DEFAULT_INSTANCE, data);
-      }
+    public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+    }
 
-      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(
-              byte[] data,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws com.google.protobuf.InvalidProtocolBufferException {
-          return com.google.protobuf.GeneratedMessageLite.parseFrom(
-                  DEFAULT_INSTANCE, data, extensionRegistry);
-      }
+    public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data);
+    }
 
-      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(java.io.InputStream input)
-              throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageLite.parseFrom(
-                  DEFAULT_INSTANCE, input);
-      }
+    public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, data, extensionRegistry);
+    }
 
-      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(
-              java.io.InputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageLite.parseFrom(
-                  DEFAULT_INSTANCE, input, extensionRegistry);
-      }
+    public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input);
+    }
 
-      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseDelimitedFrom(java.io.InputStream input)
-              throws java.io.IOException {
-          return parseDelimitedFrom(DEFAULT_INSTANCE, input);
-      }
+    public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input, extensionRegistry);
+    }
 
-      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseDelimitedFrom(
-              java.io.InputStream input,
-              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-          return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
-      }
+    public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
 
-      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(
-              com.google.protobuf.CodedInputStream input)
-              throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageLite.parseFrom(
-                  DEFAULT_INSTANCE, input);
-      }
+    public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
 
-      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(
+    public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input);
+    }
+
+    public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-              throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageLite.parseFrom(
-                  DEFAULT_INSTANCE, input, extensionRegistry);
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+              DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+
+    public static Builder newBuilder(org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells prototype) {
+      return DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    public static com.google.protobuf.Parser<TargetCells> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+
+    /**
+     * <code>.org.yanzhe.robomaster.recodaemon.net.proto.RecoMethod method = 1;</code>
+     */
+    public int getMethodValue() {
+      return method_;
+    }
+
+    /**
+     * <code>.org.yanzhe.robomaster.recodaemon.net.proto.RecoMethod method = 1;</code>
+     */
+    private void setMethodValue(int value) {
+      method_ = value;
+    }
+
+    /**
+     * <code>.org.yanzhe.robomaster.recodaemon.net.proto.RecoMethod method = 1;</code>
+     */
+    public org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.RecoMethod getMethod() {
+      org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.RecoMethod result = org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.RecoMethod.forNumber(method_);
+      return result == null ? org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.RecoMethod.UNRECOGNIZED : result;
+    }
+
+    /**
+     * <code>.org.yanzhe.robomaster.recodaemon.net.proto.RecoMethod method = 1;</code>
+     */
+    private void setMethod(org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.RecoMethod value) {
+      if (value == null) {
+        throw new NullPointerException();
       }
 
-      public static Builder newBuilder() {
-          return (Builder) DEFAULT_INSTANCE.createBuilder();
-      }
+      method_ = value.getNumber();
+    }
 
-      public static Builder newBuilder(org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells prototype) {
-          return DEFAULT_INSTANCE.createBuilder(prototype);
-      }
+    /**
+     * <code>.org.yanzhe.robomaster.recodaemon.net.proto.RecoMethod method = 1;</code>
+     */
+    private void clearMethod() {
 
-      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells getDefaultInstance() {
+      method_ = 0;
+    }
+
+    /**
+     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+     */
+    public java.util.List<org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell> getCellsList() {
+      return cells_;
+    }
+
+    /**
+     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+     */
+    public java.util.List<? extends org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.CellOrBuilder>
+    getCellsOrBuilderList() {
+      return cells_;
+    }
+
+    /**
+     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+     */
+    public int getCellsCount() {
+      return cells_.size();
+    }
+
+    /**
+     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+     */
+    public org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell getCells(int index) {
+      return cells_.get(index);
+    }
+
+    /**
+     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+     */
+    public org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.CellOrBuilder getCellsOrBuilder(
+            int index) {
+      return cells_.get(index);
+    }
+
+    private void ensureCellsIsMutable() {
+      if (!cells_.isModifiable()) {
+        cells_ =
+                com.google.protobuf.GeneratedMessageLite.mutableCopy(cells_);
+      }
+    }
+
+    /**
+     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+     */
+    private void setCells(
+            int index, org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureCellsIsMutable();
+      cells_.set(index, value);
+    }
+
+    /**
+     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+     */
+    private void setCells(
+            int index, org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell.Builder builderForValue) {
+      ensureCellsIsMutable();
+      cells_.set(index, builderForValue.build());
+    }
+
+    /**
+     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+     */
+    private void addCells(org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureCellsIsMutable();
+      cells_.add(value);
+    }
+
+    /**
+     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+     */
+    private void addCells(
+            int index, org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureCellsIsMutable();
+      cells_.add(index, value);
+    }
+
+    /**
+     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+     */
+    private void addCells(
+            org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell.Builder builderForValue) {
+      ensureCellsIsMutable();
+      cells_.add(builderForValue.build());
+    }
+
+    /**
+     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+     */
+    private void addCells(
+            int index, org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell.Builder builderForValue) {
+      ensureCellsIsMutable();
+      cells_.add(index, builderForValue.build());
+    }
+
+    /**
+     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+     */
+    private void addAllCells(
+            java.lang.Iterable<? extends org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell> values) {
+      ensureCellsIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+              values, cells_);
+    }
+
+    /**
+     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+     */
+    private void clearCells() {
+      cells_ = emptyProtobufList();
+    }
+
+    /**
+     * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+     */
+    private void removeCells(int index) {
+      ensureCellsIsMutable();
+      cells_.remove(index);
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+            throws java.io.IOException {
+      if (method_ != org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.RecoMethod.SIMPLE.getNumber()) {
+        output.writeEnum(1, method_);
+      }
+      for (int i = 0; i < cells_.size(); i++) {
+        output.writeMessage(2, cells_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (method_ != org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.RecoMethod.SIMPLE.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+                .computeEnumSize(1, method_);
+      }
+      for (int i = 0; i < cells_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+                .computeMessageSize(2, cells_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+            com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+            java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells();
+        }
+        case IS_INITIALIZED: {
           return DEFAULT_INSTANCE;
-      }
-
-      public static com.google.protobuf.Parser<TargetCells> parser() {
-          return DEFAULT_INSTANCE.getParserForType();
-      }
-
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      public java.util.List<org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell> getCellsList() {
-          return cells_;
-      }
-
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      public java.util.List<? extends org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.CellOrBuilder>
-      getCellsOrBuilderList() {
-          return cells_;
-      }
-
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      public int getCellsCount() {
-          return cells_.size();
-      }
-
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      public org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell getCells(int index) {
-          return cells_.get(index);
-      }
-
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      public org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.CellOrBuilder getCellsOrBuilder(
-              int index) {
-          return cells_.get(index);
-      }
-
-      private void ensureCellsIsMutable() {
-          if (!cells_.isModifiable()) {
-              cells_ =
-                      com.google.protobuf.GeneratedMessageLite.mutableCopy(cells_);
+        }
+        case MAKE_IMMUTABLE: {
+          cells_.makeImmutable();
+          return null;
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case VISIT: {
+          Visitor visitor = (Visitor) arg0;
+          org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells other = (org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells) arg1;
+          method_ = visitor.visitInt(method_ != 0, method_, other.method_ != 0, other.method_);
+          cells_ = visitor.visitList(cells_, other.cells_);
+          if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                  .INSTANCE) {
+            bitField0_ |= other.bitField0_;
           }
-      }
-
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      private void setCells(
-              int index, org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell value) {
-          if (value == null) {
-              throw new NullPointerException();
+          return this;
+        }
+        case MERGE_FROM_STREAM: {
+          com.google.protobuf.CodedInputStream input =
+                  (com.google.protobuf.CodedInputStream) arg0;
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                  (com.google.protobuf.ExtensionRegistryLite) arg1;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
           }
-          ensureCellsIsMutable();
-          cells_.set(index, value);
-      }
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  int rawValue = input.readEnum();
 
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      private void setCells(
-              int index, org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell.Builder builderForValue) {
-          ensureCellsIsMutable();
-          cells_.set(index, builderForValue.build());
-      }
-
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      private void addCells(org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell value) {
-          if (value == null) {
-              throw new NullPointerException();
-          }
-          ensureCellsIsMutable();
-          cells_.add(value);
-      }
-
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      private void addCells(
-              int index, org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell value) {
-          if (value == null) {
-              throw new NullPointerException();
-          }
-          ensureCellsIsMutable();
-          cells_.add(index, value);
-      }
-
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      private void addCells(
-              org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell.Builder builderForValue) {
-          ensureCellsIsMutable();
-          cells_.add(builderForValue.build());
-      }
-
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      private void addCells(
-              int index, org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell.Builder builderForValue) {
-          ensureCellsIsMutable();
-          cells_.add(index, builderForValue.build());
-      }
-
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      private void addAllCells(
-              java.lang.Iterable<? extends org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell> values) {
-          ensureCellsIsMutable();
-          com.google.protobuf.AbstractMessageLite.addAll(
-                  values, cells_);
-      }
-
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      private void clearCells() {
-          cells_ = emptyProtobufList();
-      }
-
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      private void removeCells(int index) {
-          ensureCellsIsMutable();
-          cells_.remove(index);
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-              throws java.io.IOException {
-          for (int i = 0; i < cells_.size(); i++) {
-              output.writeMessage(1, cells_.get(i));
-          }
-          unknownFields.writeTo(output);
-      }
-
-      public int getSerializedSize() {
-          int size = memoizedSerializedSize;
-          if (size != -1) return size;
-
-          size = 0;
-          for (int i = 0; i < cells_.size(); i++) {
-              size += com.google.protobuf.CodedOutputStream
-                      .computeMessageSize(1, cells_.get(i));
-          }
-          size += unknownFields.getSerializedSize();
-          memoizedSerializedSize = size;
-          return size;
-      }
-
-      @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
-      protected final java.lang.Object dynamicMethod(
-              com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-              java.lang.Object arg0, java.lang.Object arg1) {
-          switch (method) {
-              case NEW_MUTABLE_INSTANCE: {
-                  return new org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells();
-              }
-              case IS_INITIALIZED: {
-                  return DEFAULT_INSTANCE;
-              }
-              case MAKE_IMMUTABLE: {
-                  cells_.makeImmutable();
-                  return null;
-              }
-              case NEW_BUILDER: {
-                  return new Builder();
-              }
-              case VISIT: {
-                  Visitor visitor = (Visitor) arg0;
-                  org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells other = (org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells) arg1;
-                  cells_ = visitor.visitList(cells_, other.cells_);
-                  if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-                          .INSTANCE) {
+                  method_ = rawValue;
+                  break;
+                }
+                case 18: {
+                  if (!cells_.isModifiable()) {
+                    cells_ =
+                            com.google.protobuf.GeneratedMessageLite.mutableCopy(cells_);
                   }
-                  return this;
-              }
-              case MERGE_FROM_STREAM: {
-                  com.google.protobuf.CodedInputStream input =
-                          (com.google.protobuf.CodedInputStream) arg0;
-                  com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-                          (com.google.protobuf.ExtensionRegistryLite) arg1;
-                  if (extensionRegistry == null) {
-                      throw new java.lang.NullPointerException();
+                  cells_.add(
+                          input.readMessage(org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell.parser(), extensionRegistry));
+                  break;
+                }
+                default: {
+                  if (!parseUnknownField(tag, input)) {
+                    done = true;
                   }
-                  try {
-                      boolean done = false;
-                      while (!done) {
-                          int tag = input.readTag();
-                          switch (tag) {
-                              case 0:
-                                  done = true;
-                                  break;
-                              case 10: {
-                                  if (!cells_.isModifiable()) {
-                                      cells_ =
-                                              com.google.protobuf.GeneratedMessageLite.mutableCopy(cells_);
-                                  }
-                                  cells_.add(
-                                          input.readMessage(org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell.parser(), extensionRegistry));
-                                  break;
-                              }
-                              default: {
-                                  if (!parseUnknownField(tag, input)) {
-                                      done = true;
-                                  }
-                                  break;
-                              }
-                          }
-                      }
-                  } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                      throw new RuntimeException(e.setUnfinishedMessage(this));
-                  } catch (java.io.IOException e) {
-                      throw new RuntimeException(
-                              new com.google.protobuf.InvalidProtocolBufferException(
-                                      e.getMessage()).setUnfinishedMessage(this));
-                  } finally {
-                  }
+                  break;
+                }
               }
-              // fall through
-              case GET_DEFAULT_INSTANCE: {
-                  return DEFAULT_INSTANCE;
-              }
-              case GET_PARSER: {
-                  if (PARSER == null) {
-                      synchronized (org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.class) {
-                          if (PARSER == null) {
-                              PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
-                          }
-                      }
-                  }
-                  return PARSER;
-              }
-              case GET_MEMOIZED_IS_INITIALIZED: {
-                  return (byte) 1;
-              }
-              case SET_MEMOIZED_IS_INITIALIZED: {
-                  return null;
-              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw new RuntimeException(e.setUnfinishedMessage(this));
+          } catch (java.io.IOException e) {
+            throw new RuntimeException(
+                    new com.google.protobuf.InvalidProtocolBufferException(
+                            e.getMessage()).setUnfinishedMessage(this));
+          } finally {
           }
-          throw new UnsupportedOperationException();
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          if (PARSER == null) {
+            synchronized (org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.class) {
+              if (PARSER == null) {
+                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+              }
+            }
+          }
+          return PARSER;
+        }
+        case GET_MEMOIZED_IS_INITIALIZED: {
+          return (byte) 1;
+        }
+        case SET_MEMOIZED_IS_INITIALIZED: {
+          return null;
+        }
       }
+      throw new UnsupportedOperationException();
+    }
 
-      public interface CellOrBuilder extends
-              // @@protoc_insertion_point(interface_extends:org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell)
+    public interface CellOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell)
         com.google.protobuf.MessageLiteOrBuilder {
 
       /**
@@ -422,566 +566,568 @@ public final class TargetCellsProto {
        * <code>.google.protobuf.Int32Value pos = 3;</code>
        */
       boolean hasPos();
+
       /**
        * <code>.google.protobuf.Int32Value pos = 3;</code>
        */
       com.google.protobuf.Int32Value getPos();
 
-          /**
-           * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
-           */
-          boolean hasImg();
-
-          /**
-           * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
-           */
-          org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image getImg();
-      }
+      /**
+       * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+       */
+      boolean hasImg();
 
       /**
-       * Protobuf type {@code org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell}
+       * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
        */
-      public static final class Cell extends
-              com.google.protobuf.GeneratedMessageLite<
-                      Cell, Cell.Builder> implements
-              // @@protoc_insertion_point(message_implements:org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell)
-        CellOrBuilder {
+      org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image getImg();
+    }
+
+    /**
+     * Protobuf type {@code org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell}
+     */
+    public static final class Cell extends
+        com.google.protobuf.GeneratedMessageLite<
+            Cell, Cell.Builder> implements
+        // @@protoc_insertion_point(message_implements:org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell)
+            CellOrBuilder {
       private Cell() {
       }
+
       public static final int SEQ_FIELD_NUMBER = 1;
       private com.google.protobuf.UInt64Value seq_;
-
-          /**
-           * <code>.google.protobuf.UInt64Value seq = 1;</code>
-           */
-          public boolean hasSeq() {
-              return seq_ != null;
-          }
-
-          public static final int POS_FIELD_NUMBER = 3;
-          public static final int IMG_FIELD_NUMBER = 4;
-          // @@protoc_insertion_point(class_scope:org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell)
-          private static final org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell DEFAULT_INSTANCE;
-          private static volatile com.google.protobuf.Parser<Cell> PARSER;
+      public static final int GOAL_FIELD_NUMBER = 2;
+      public static final int POS_FIELD_NUMBER = 3;
+      public static final int IMG_FIELD_NUMBER = 4;
+      // @@protoc_insertion_point(class_scope:org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell)
+      private static final org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell DEFAULT_INSTANCE;
+      private static volatile com.google.protobuf.Parser<Cell> PARSER;
 
       static {
         DEFAULT_INSTANCE = new Cell();
         DEFAULT_INSTANCE.makeImmutable();
       }
 
-      public static final int GOAL_FIELD_NUMBER = 2;
       private com.google.protobuf.UInt32Value goal_;
-      /**
-       * <code>.google.protobuf.UInt32Value goal = 2;</code>
-       */
-      public boolean hasGoal() {
-        return goal_ != null;
-      }
-      /**
-       * <code>.google.protobuf.UInt32Value goal = 2;</code>
-       */
-      public com.google.protobuf.UInt32Value getGoal() {
-          return goal_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : goal_;
-      }
+      private com.google.protobuf.Int32Value pos_;
+      private org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image img_;
 
-          private com.google.protobuf.Int32Value pos_;
-          private org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image img_;
-
-          public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(
-                  java.nio.ByteBuffer data)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
-              return com.google.protobuf.GeneratedMessageLite.parseFrom(
-                      DEFAULT_INSTANCE, data);
-          }
-
-          public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(
-                  java.nio.ByteBuffer data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, data, extensionRegistry);
-          }
-
-          public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-                DEFAULT_INSTANCE, data);
-          }
-
-          public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(
-                  com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return com.google.protobuf.GeneratedMessageLite.parseFrom(
-            DEFAULT_INSTANCE, data, extensionRegistry);
-          }
-
-          public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(byte[] data)
-                  throws com.google.protobuf.InvalidProtocolBufferException {
+      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(
+              java.nio.ByteBuffer data)
+              throws com.google.protobuf.InvalidProtocolBufferException {
         return com.google.protobuf.GeneratedMessageLite.parseFrom(
             DEFAULT_INSTANCE, data);
       }
 
       public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(
-              byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
+              java.nio.ByteBuffer data,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
         return com.google.protobuf.GeneratedMessageLite.parseFrom(
             DEFAULT_INSTANCE, data, extensionRegistry);
       }
 
-          public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(
+      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(
+              com.google.protobuf.ByteString data)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+
+      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(
+              com.google.protobuf.ByteString data,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+
+      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, data);
+      }
+
+      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                DEFAULT_INSTANCE, data, extensionRegistry);
+      }
+
+      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(java.io.InputStream input)
+              throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+            DEFAULT_INSTANCE, input);
+      }
+
+      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(
           java.io.InputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
+              throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageLite.parseFrom(
             DEFAULT_INSTANCE, input, extensionRegistry);
-          }
+      }
 
-          public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseDelimitedFrom(java.io.InputStream input)
+      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseDelimitedFrom(java.io.InputStream input)
           throws java.io.IOException {
         return parseDelimitedFrom(DEFAULT_INSTANCE, input);
-          }
+      }
 
-          public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
+      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseDelimitedFrom(
+              java.io.InputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
         return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
-          }
+      }
 
-          public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(
-                  com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
+      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(
+          com.google.protobuf.CodedInputStream input)
+              throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageLite.parseFrom(
             DEFAULT_INSTANCE, input);
       }
 
       public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(
               com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-          return com.google.protobuf.GeneratedMessageLite.parseFrom(
-                  DEFAULT_INSTANCE, input, extensionRegistry);
+        return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                DEFAULT_INSTANCE, input, extensionRegistry);
       }
 
-          public static Builder newBuilder(org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell prototype) {
-              return DEFAULT_INSTANCE.createBuilder(prototype);
+      public static Builder newBuilder() {
+        return (Builder) DEFAULT_INSTANCE.createBuilder();
+      }
+
+      public static Builder newBuilder(org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell prototype) {
+        return DEFAULT_INSTANCE.createBuilder(prototype);
+      }
+
+      public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      public static com.google.protobuf.Parser<Cell> parser() {
+        return DEFAULT_INSTANCE.getParserForType();
+      }
+
+      /**
+       * <code>.google.protobuf.UInt64Value seq = 1;</code>
+       */
+      public boolean hasSeq() {
+        return seq_ != null;
+      }
+
+      /**
+       * <code>.google.protobuf.UInt64Value seq = 1;</code>
+       */
+      public com.google.protobuf.UInt64Value getSeq() {
+        return seq_ == null ? com.google.protobuf.UInt64Value.getDefaultInstance() : seq_;
+      }
+
+      /**
+       * <code>.google.protobuf.UInt64Value seq = 1;</code>
+       */
+      private void setSeq(
+              com.google.protobuf.UInt64Value.Builder builderForValue) {
+        seq_ = builderForValue.build();
+
+      }
+
+      /**
+       * <code>.google.protobuf.UInt64Value seq = 1;</code>
+       */
+      private void setSeq(com.google.protobuf.UInt64Value value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        seq_ = value;
+
+      }
+
+      /**
+       * <code>.google.protobuf.UInt64Value seq = 1;</code>
+       */
+      private void mergeSeq(com.google.protobuf.UInt64Value value) {
+        if (seq_ != null &&
+                seq_ != com.google.protobuf.UInt64Value.getDefaultInstance()) {
+          seq_ =
+                  com.google.protobuf.UInt64Value.newBuilder(seq_).mergeFrom(value).buildPartial();
+        } else {
+          seq_ = value;
+        }
+
+      }
+
+      /**
+       * <code>.google.protobuf.UInt64Value seq = 1;</code>
+       */
+      private void clearSeq() {
+        seq_ = null;
+
+      }
+
+      /**
+       * <code>.google.protobuf.UInt32Value goal = 2;</code>
+       */
+      public boolean hasGoal() {
+        return goal_ != null;
+      }
+
+      /**
+       * <code>.google.protobuf.UInt32Value goal = 2;</code>
+       */
+      public com.google.protobuf.UInt32Value getGoal() {
+        return goal_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : goal_;
+      }
+
+      /**
+       * <code>.google.protobuf.UInt32Value goal = 2;</code>
+       */
+      private void setGoal(
+              com.google.protobuf.UInt32Value.Builder builderForValue) {
+        goal_ = builderForValue.build();
+
+      }
+
+      /**
+       * <code>.google.protobuf.UInt32Value goal = 2;</code>
+       */
+      private void setGoal(com.google.protobuf.UInt32Value value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        goal_ = value;
+
+      }
+
+      /**
+       * <code>.google.protobuf.UInt32Value goal = 2;</code>
+       */
+      private void mergeGoal(com.google.protobuf.UInt32Value value) {
+        if (goal_ != null &&
+                goal_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          goal_ =
+                  com.google.protobuf.UInt32Value.newBuilder(goal_).mergeFrom(value).buildPartial();
+        } else {
+          goal_ = value;
+        }
+
+      }
+
+      /**
+       * <code>.google.protobuf.UInt32Value goal = 2;</code>
+       */
+      private void clearGoal() {
+        goal_ = null;
+
+      }
+
+      /**
+       * <code>.google.protobuf.Int32Value pos = 3;</code>
+       */
+      public boolean hasPos() {
+        return pos_ != null;
+      }
+
+      /**
+       * <code>.google.protobuf.Int32Value pos = 3;</code>
+       */
+      public com.google.protobuf.Int32Value getPos() {
+        return pos_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : pos_;
+      }
+
+      /**
+       * <code>.google.protobuf.Int32Value pos = 3;</code>
+       */
+      private void setPos(
+              com.google.protobuf.Int32Value.Builder builderForValue) {
+        pos_ = builderForValue.build();
+
+      }
+
+      /**
+       * <code>.google.protobuf.Int32Value pos = 3;</code>
+       */
+      private void setPos(com.google.protobuf.Int32Value value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        pos_ = value;
+
+      }
+
+      /**
+       * <code>.google.protobuf.Int32Value pos = 3;</code>
+       */
+      private void mergePos(com.google.protobuf.Int32Value value) {
+        if (pos_ != null &&
+                pos_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          pos_ =
+                  com.google.protobuf.Int32Value.newBuilder(pos_).mergeFrom(value).buildPartial();
+        } else {
+          pos_ = value;
+        }
+
+      }
+
+      /**
+       * <code>.google.protobuf.Int32Value pos = 3;</code>
+       */
+      private void clearPos() {
+        pos_ = null;
+
+      }
+
+      /**
+       * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+       */
+      public boolean hasImg() {
+        return img_ != null;
+      }
+
+      /**
+       * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+       */
+      public org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image getImg() {
+        return img_ == null ? org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.getDefaultInstance() : img_;
+      }
+
+      /**
+       * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+       */
+      private void setImg(
+              org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.Builder builderForValue) {
+        img_ = builderForValue.build();
+
+      }
+
+      /**
+       * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+       */
+      private void setImg(org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        img_ = value;
+
+      }
+
+      /**
+       * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+       */
+      private void mergeImg(org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image value) {
+        if (img_ != null &&
+                img_ != org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.getDefaultInstance()) {
+          img_ =
+                  org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.newBuilder(img_).mergeFrom(value).buildPartial();
+        } else {
+          img_ = value;
+        }
+
+      }
+
+      /**
+       * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+       */
+      private void clearImg() {
+        img_ = null;
+
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+              throws java.io.IOException {
+        if (seq_ != null) {
+          output.writeMessage(1, getSeq());
+        }
+        if (goal_ != null) {
+          output.writeMessage(2, getGoal());
+        }
+        if (pos_ != null) {
+          output.writeMessage(3, getPos());
+        }
+        if (img_ != null) {
+          output.writeMessage(4, getImg());
+        }
+        unknownFields.writeTo(output);
+      }
+
+      public int getSerializedSize() {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (seq_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+                  .computeMessageSize(1, getSeq());
+        }
+        if (goal_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+                  .computeMessageSize(2, getGoal());
+        }
+        if (pos_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+                  .computeMessageSize(3, getPos());
+        }
+        if (img_ != null) {
+          size += com.google.protobuf.CodedOutputStream
+                  .computeMessageSize(4, getImg());
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSerializedSize = size;
+        return size;
+      }
+
+      @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+      protected final java.lang.Object dynamicMethod(
+              com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+              java.lang.Object arg0, java.lang.Object arg1) {
+        switch (method) {
+          case NEW_MUTABLE_INSTANCE: {
+            return new org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell();
           }
-
-          public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell getDefaultInstance() {
-              return DEFAULT_INSTANCE;
+          case IS_INITIALIZED: {
+            return DEFAULT_INSTANCE;
           }
-
-          public static com.google.protobuf.Parser<Cell> parser() {
-              return DEFAULT_INSTANCE.getParserForType();
+          case MAKE_IMMUTABLE: {
+            return null;
           }
-
-          /**
-           * <code>.google.protobuf.UInt64Value seq = 1;</code>
-           */
-          public com.google.protobuf.UInt64Value getSeq() {
-              return seq_ == null ? com.google.protobuf.UInt64Value.getDefaultInstance() : seq_;
+          case NEW_BUILDER: {
+            return new Builder();
           }
-
-          /**
-           * <code>.google.protobuf.UInt64Value seq = 1;</code>
-           */
-          private void setSeq(
-                  com.google.protobuf.UInt64Value.Builder builderForValue) {
-              seq_ = builderForValue.build();
-
+          case VISIT: {
+            Visitor visitor = (Visitor) arg0;
+            org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell other = (org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell) arg1;
+            seq_ = visitor.visitMessage(seq_, other.seq_);
+            goal_ = visitor.visitMessage(goal_, other.goal_);
+            pos_ = visitor.visitMessage(pos_, other.pos_);
+            img_ = visitor.visitMessage(img_, other.img_);
+            if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                    .INSTANCE) {
+            }
+            return this;
           }
+          case MERGE_FROM_STREAM: {
+            com.google.protobuf.CodedInputStream input =
+                    (com.google.protobuf.CodedInputStream) arg0;
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                    (com.google.protobuf.ExtensionRegistryLite) arg1;
+            if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+            }
+            try {
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 10: {
+                    com.google.protobuf.UInt64Value.Builder subBuilder = null;
+                    if (seq_ != null) {
+                      subBuilder = seq_.toBuilder();
+                    }
+                    seq_ = input.readMessage(com.google.protobuf.UInt64Value.parser(), extensionRegistry);
+                    if (subBuilder != null) {
+                      subBuilder.mergeFrom(seq_);
+                      seq_ = subBuilder.buildPartial();
+                    }
 
-          /**
-           * <code>.google.protobuf.UInt64Value seq = 1;</code>
-           */
-          private void setSeq(com.google.protobuf.UInt64Value value) {
-              if (value == null) {
-                  throw new NullPointerException();
-              }
-              seq_ = value;
-
-          }
-
-          /**
-           * <code>.google.protobuf.UInt64Value seq = 1;</code>
-           */
-          private void mergeSeq(com.google.protobuf.UInt64Value value) {
-              if (seq_ != null &&
-                      seq_ != com.google.protobuf.UInt64Value.getDefaultInstance()) {
-                  seq_ =
-                          com.google.protobuf.UInt64Value.newBuilder(seq_).mergeFrom(value).buildPartial();
-              } else {
-                  seq_ = value;
-              }
-
-          }
-
-          /**
-           * <code>.google.protobuf.UInt64Value seq = 1;</code>
-           */
-          private void clearSeq() {
-              seq_ = null;
-
-          }
-
-          /**
-           * <code>.google.protobuf.UInt32Value goal = 2;</code>
-           */
-          private void setGoal(com.google.protobuf.UInt32Value value) {
-              if (value == null) {
-                  throw new NullPointerException();
-              }
-              goal_ = value;
-
-          }
-
-          /**
-           * <code>.google.protobuf.UInt32Value goal = 2;</code>
-           */
-          private void setGoal(
-                  com.google.protobuf.UInt32Value.Builder builderForValue) {
-              goal_ = builderForValue.build();
-
-          }
-
-          /**
-           * <code>.google.protobuf.UInt32Value goal = 2;</code>
-           */
-          private void mergeGoal(com.google.protobuf.UInt32Value value) {
-              if (goal_ != null &&
-                      goal_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
-                  goal_ =
-                          com.google.protobuf.UInt32Value.newBuilder(goal_).mergeFrom(value).buildPartial();
-              } else {
-                  goal_ = value;
-              }
-
-          }
-
-          /**
-           * <code>.google.protobuf.UInt32Value goal = 2;</code>
-           */
-          private void clearGoal() {
-              goal_ = null;
-
-          }
-
-          /**
-           * <code>.google.protobuf.Int32Value pos = 3;</code>
-           */
-          public boolean hasPos() {
-              return pos_ != null;
-          }
-
-          /**
-           * <code>.google.protobuf.Int32Value pos = 3;</code>
-           */
-          public com.google.protobuf.Int32Value getPos() {
-              return pos_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : pos_;
-          }
-
-          /**
-           * <code>.google.protobuf.Int32Value pos = 3;</code>
-           */
-          private void setPos(
-                  com.google.protobuf.Int32Value.Builder builderForValue) {
-              pos_ = builderForValue.build();
-
-          }
-
-          public static org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell parseFrom(java.io.InputStream input)
-                  throws java.io.IOException {
-              return com.google.protobuf.GeneratedMessageLite.parseFrom(
-                      DEFAULT_INSTANCE, input);
-          }
-
-          /**
-           * <code>.google.protobuf.Int32Value pos = 3;</code>
-           */
-          private void setPos(com.google.protobuf.Int32Value value) {
-              if (value == null) {
-                  throw new NullPointerException();
-              }
-              pos_ = value;
-
-          }
-
-          /**
-           * <code>.google.protobuf.Int32Value pos = 3;</code>
-           */
-          private void mergePos(com.google.protobuf.Int32Value value) {
-              if (pos_ != null &&
-                      pos_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
-                  pos_ =
-                          com.google.protobuf.Int32Value.newBuilder(pos_).mergeFrom(value).buildPartial();
-              } else {
-                  pos_ = value;
-              }
-
-          }
-
-          /**
-           * <code>.google.protobuf.Int32Value pos = 3;</code>
-           */
-          private void clearPos() {
-              pos_ = null;
-
-          }
-
-          /**
-           * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
-           */
-          public boolean hasImg() {
-              return img_ != null;
-          }
-
-          /**
-           * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
-           */
-          public org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image getImg() {
-              return img_ == null ? org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.getDefaultInstance() : img_;
-          }
-
-          public static Builder newBuilder() {
-              return (Builder) DEFAULT_INSTANCE.createBuilder();
-          }
-
-          /**
-           * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
-           */
-          private void setImg(
-                  org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.Builder builderForValue) {
-              img_ = builderForValue.build();
-
-          }
-
-          /**
-           * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
-           */
-          private void setImg(org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image value) {
-              if (value == null) {
-                  throw new NullPointerException();
-              }
-              img_ = value;
-
-          }
-
-          /**
-           * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
-           */
-          private void mergeImg(org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image value) {
-              if (img_ != null &&
-                      img_ != org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.getDefaultInstance()) {
-                  img_ =
-                          org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.newBuilder(img_).mergeFrom(value).buildPartial();
-              } else {
-                  img_ = value;
-              }
-
-          }
-
-          /**
-           * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
-           */
-          private void clearImg() {
-              img_ = null;
-
-          }
-
-          public void writeTo(com.google.protobuf.CodedOutputStream output)
-                  throws java.io.IOException {
-              if (seq_ != null) {
-                  output.writeMessage(1, getSeq());
-              }
-              if (goal_ != null) {
-                  output.writeMessage(2, getGoal());
-              }
-              if (pos_ != null) {
-                  output.writeMessage(3, getPos());
-              }
-              if (img_ != null) {
-                  output.writeMessage(4, getImg());
-              }
-              unknownFields.writeTo(output);
-          }
-
-          public int getSerializedSize() {
-              int size = memoizedSerializedSize;
-              if (size != -1) return size;
-
-              size = 0;
-              if (seq_ != null) {
-                  size += com.google.protobuf.CodedOutputStream
-                          .computeMessageSize(1, getSeq());
-              }
-              if (goal_ != null) {
-                  size += com.google.protobuf.CodedOutputStream
-                          .computeMessageSize(2, getGoal());
-              }
-              if (pos_ != null) {
-                  size += com.google.protobuf.CodedOutputStream
-                          .computeMessageSize(3, getPos());
-              }
-              if (img_ != null) {
-                  size += com.google.protobuf.CodedOutputStream
-                          .computeMessageSize(4, getImg());
-              }
-              size += unknownFields.getSerializedSize();
-              memoizedSerializedSize = size;
-              return size;
-          }
-
-          @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
-          protected final java.lang.Object dynamicMethod(
-                  com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
-                  java.lang.Object arg0, java.lang.Object arg1) {
-              switch (method) {
-                  case NEW_MUTABLE_INSTANCE: {
-                      return new org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell();
+                    break;
                   }
-                  case IS_INITIALIZED: {
-                      return DEFAULT_INSTANCE;
-                  }
-                  case MAKE_IMMUTABLE: {
-                      return null;
-                  }
-                  case NEW_BUILDER: {
-                      return new Builder();
-                  }
-                  case VISIT: {
-                      Visitor visitor = (Visitor) arg0;
-                      org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell other = (org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell) arg1;
-                      seq_ = visitor.visitMessage(seq_, other.seq_);
-                      goal_ = visitor.visitMessage(goal_, other.goal_);
-                      pos_ = visitor.visitMessage(pos_, other.pos_);
-                      img_ = visitor.visitMessage(img_, other.img_);
-                      if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
-                              .INSTANCE) {
-                      }
-                      return this;
-                  }
-                  case MERGE_FROM_STREAM: {
-                      com.google.protobuf.CodedInputStream input =
-                              (com.google.protobuf.CodedInputStream) arg0;
-                      com.google.protobuf.ExtensionRegistryLite extensionRegistry =
-                              (com.google.protobuf.ExtensionRegistryLite) arg1;
-                      if (extensionRegistry == null) {
-                          throw new java.lang.NullPointerException();
-                      }
-                      try {
-                          boolean done = false;
-                          while (!done) {
-                              int tag = input.readTag();
-                              switch (tag) {
-                                  case 0:
-                                      done = true;
-                                      break;
-                                  case 10: {
-                                      com.google.protobuf.UInt64Value.Builder subBuilder = null;
-                                      if (seq_ != null) {
-                                          subBuilder = seq_.toBuilder();
-                                      }
-                                      seq_ = input.readMessage(com.google.protobuf.UInt64Value.parser(), extensionRegistry);
-                                      if (subBuilder != null) {
-                                          subBuilder.mergeFrom(seq_);
-                                          seq_ = subBuilder.buildPartial();
-                                      }
+                  case 18: {
+                    com.google.protobuf.UInt32Value.Builder subBuilder = null;
+                    if (goal_ != null) {
+                      subBuilder = goal_.toBuilder();
+                    }
+                    goal_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
+                    if (subBuilder != null) {
+                      subBuilder.mergeFrom(goal_);
+                      goal_ = subBuilder.buildPartial();
+                    }
 
-                                      break;
-                                  }
-                                  case 18: {
-                                      com.google.protobuf.UInt32Value.Builder subBuilder = null;
-                                      if (goal_ != null) {
-                                          subBuilder = goal_.toBuilder();
-                                      }
-                                      goal_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-                                      if (subBuilder != null) {
-                                          subBuilder.mergeFrom(goal_);
-                                          goal_ = subBuilder.buildPartial();
-                                      }
+                    break;
+                  }
+                  case 26: {
+                    com.google.protobuf.Int32Value.Builder subBuilder = null;
+                    if (pos_ != null) {
+                      subBuilder = pos_.toBuilder();
+                    }
+                    pos_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
+                    if (subBuilder != null) {
+                      subBuilder.mergeFrom(pos_);
+                      pos_ = subBuilder.buildPartial();
+                    }
 
-                                      break;
-                                  }
-                                  case 26: {
-                                      com.google.protobuf.Int32Value.Builder subBuilder = null;
-                                      if (pos_ != null) {
-                                          subBuilder = pos_.toBuilder();
-                                      }
-                                      pos_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-                                      if (subBuilder != null) {
-                                          subBuilder.mergeFrom(pos_);
-                                          pos_ = subBuilder.buildPartial();
-                                      }
+                    break;
+                  }
+                  case 34: {
+                    org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.Builder subBuilder = null;
+                    if (img_ != null) {
+                      subBuilder = img_.toBuilder();
+                    }
+                    img_ = input.readMessage(org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.parser(), extensionRegistry);
+                    if (subBuilder != null) {
+                      subBuilder.mergeFrom(img_);
+                      img_ = subBuilder.buildPartial();
+                    }
 
-                                      break;
-                                  }
-                                  case 34: {
-                                      org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.Builder subBuilder = null;
-                                      if (img_ != null) {
-                                          subBuilder = img_.toBuilder();
-                                      }
-                                      img_ = input.readMessage(org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.parser(), extensionRegistry);
-                                      if (subBuilder != null) {
-                                          subBuilder.mergeFrom(img_);
-                                          img_ = subBuilder.buildPartial();
-                                      }
-
-                                      break;
-                                  }
-                                  default: {
-                                      if (!parseUnknownField(tag, input)) {
-                                          done = true;
-                                      }
-                                      break;
-                                  }
-                              }
-                          }
-                      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                          throw new RuntimeException(e.setUnfinishedMessage(this));
-                      } catch (java.io.IOException e) {
-                          throw new RuntimeException(
-                                  new com.google.protobuf.InvalidProtocolBufferException(
-                                          e.getMessage()).setUnfinishedMessage(this));
-                      } finally {
-                      }
+                    break;
                   }
-                  // fall through
-                  case GET_DEFAULT_INSTANCE: {
-                      return DEFAULT_INSTANCE;
+                  default: {
+                    if (!parseUnknownField(tag, input)) {
+                      done = true;
+                    }
+                    break;
                   }
-                  case GET_PARSER: {
-                      if (PARSER == null) {
-                          synchronized (org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell.class) {
-                              if (PARSER == null) {
-                                  PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
-                              }
-                          }
-                      }
-                      return PARSER;
-                  }
-                  case GET_MEMOIZED_IS_INITIALIZED: {
-                      return (byte) 1;
-                  }
-                  case SET_MEMOIZED_IS_INITIALIZED: {
-                      return null;
-                  }
+                }
               }
-              throw new UnsupportedOperationException();
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw new RuntimeException(e.setUnfinishedMessage(this));
+            } catch (java.io.IOException e) {
+              throw new RuntimeException(
+                      new com.google.protobuf.InvalidProtocolBufferException(
+                              e.getMessage()).setUnfinishedMessage(this));
+            } finally {
+            }
           }
+          // fall through
+          case GET_DEFAULT_INSTANCE: {
+            return DEFAULT_INSTANCE;
+          }
+          case GET_PARSER: {
+            if (PARSER == null) {
+              synchronized (org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell.class) {
+                if (PARSER == null) {
+                  PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                }
+              }
+            }
+            return PARSER;
+          }
+          case GET_MEMOIZED_IS_INITIALIZED: {
+            return (byte) 1;
+          }
+          case SET_MEMOIZED_IS_INITIALIZED: {
+            return null;
+          }
+        }
+        throw new UnsupportedOperationException();
+      }
 
-          /**
-           * Protobuf type {@code org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell}
-           */
-          public static final class Builder extends
-                  com.google.protobuf.GeneratedMessageLite.Builder<
-                          org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell, Builder> implements
-          // @@protoc_insertion_point(builder_implements:org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell)
+      /**
+       * Protobuf type {@code org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageLite.Builder<
+            org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell, Builder> implements
+              // @@protoc_insertion_point(builder_implements:org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell)
           org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.CellOrBuilder {
-              // Construct using org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell.newBuilder()
-              private Builder() {
+        // Construct using org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell.newBuilder()
+        private Builder() {
           super(DEFAULT_INSTANCE);
         }
 
@@ -990,11 +1136,10 @@ public final class TargetCellsProto {
          * <code>.google.protobuf.UInt64Value seq = 1;</code>
          */
         public boolean hasSeq() {
-            return instance.hasSeq();
+          return instance.hasSeq();
         }
-
-              /**
-               * <code>.google.protobuf.UInt64Value seq = 1;</code>
+        /**
+         * <code>.google.protobuf.UInt64Value seq = 1;</code>
          */
         public com.google.protobuf.UInt64Value getSeq() {
           return instance.getSeq();
@@ -1039,11 +1184,10 @@ public final class TargetCellsProto {
          * <code>.google.protobuf.UInt32Value goal = 2;</code>
          */
         public boolean hasGoal() {
-            return instance.hasGoal();
+          return instance.hasGoal();
         }
-
-              /**
-               * <code>.google.protobuf.UInt32Value goal = 2;</code>
+        /**
+         * <code>.google.protobuf.UInt32Value goal = 2;</code>
          */
         public com.google.protobuf.UInt32Value getGoal() {
           return instance.getGoal();
@@ -1072,15 +1216,15 @@ public final class TargetCellsProto {
          * <code>.google.protobuf.UInt32Value goal = 2;</code>
          */
         public Builder mergeGoal(com.google.protobuf.UInt32Value value) {
-            copyOnWrite();
-            instance.mergeGoal(value);
-            return this;
+          copyOnWrite();
+          instance.mergeGoal(value);
+          return this;
         }
-
-              /**
-               * <code>.google.protobuf.UInt32Value goal = 2;</code>
-               */
-              public Builder clearGoal() {  copyOnWrite();
+        /**
+         * <code>.google.protobuf.UInt32Value goal = 2;</code>
+         */
+        public Builder clearGoal() {
+          copyOnWrite();
           instance.clearGoal();
           return this;
         }
@@ -1089,7 +1233,7 @@ public final class TargetCellsProto {
          * <code>.google.protobuf.Int32Value pos = 3;</code>
          */
         public boolean hasPos() {
-            return instance.hasPos();
+          return instance.hasPos();
         }
         /**
          * <code>.google.protobuf.Int32Value pos = 3;</code>
@@ -1103,9 +1247,9 @@ public final class TargetCellsProto {
          */
         public Builder setPos(
                 com.google.protobuf.Int32Value.Builder builderForValue) {
-            copyOnWrite();
-            instance.setPos(builderForValue);
-            return this;
+          copyOnWrite();
+          instance.setPos(builderForValue);
+          return this;
         }
 
         /**
@@ -1117,76 +1261,76 @@ public final class TargetCellsProto {
           return this;
         }
 
-              /**
-               * <code>.google.protobuf.Int32Value pos = 3;</code>
-               */
-              public Builder mergePos(com.google.protobuf.Int32Value value) {
-                  copyOnWrite();
-                  instance.mergePos(value);
-                  return this;
-              }
+        /**
+         * <code>.google.protobuf.Int32Value pos = 3;</code>
+         */
+        public Builder mergePos(com.google.protobuf.Int32Value value) {
+          copyOnWrite();
+          instance.mergePos(value);
+          return this;
+        }
 
-              /**
-               * <code>.google.protobuf.Int32Value pos = 3;</code>
-               */
-              public Builder clearPos() {
-                  copyOnWrite();
-                  instance.clearPos();
-                  return this;
-              }
+        /**
+         * <code>.google.protobuf.Int32Value pos = 3;</code>
+         */
+        public Builder clearPos() {
+          copyOnWrite();
+          instance.clearPos();
+          return this;
+        }
 
-              /**
-               * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
-               */
-              public boolean hasImg() {
-                  return instance.hasImg();
-              }
+        /**
+         * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+         */
+        public boolean hasImg() {
+          return instance.hasImg();
+        }
 
-              /**
-               * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
-               */
-              public org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image getImg() {
-                  return instance.getImg();
-              }
+        /**
+         * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+         */
+        public org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image getImg() {
+          return instance.getImg();
+        }
 
-              /**
-               * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
-               */
-              public Builder setImg(
-                      org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.Builder builderForValue) {
-                  copyOnWrite();
-                  instance.setImg(builderForValue);
-                  return this;
-              }
+        /**
+         * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+         */
+        public Builder setImg(
+                org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.Builder builderForValue) {
+          copyOnWrite();
+          instance.setImg(builderForValue);
+          return this;
+        }
 
-              /**
-               * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
-               */
-              public Builder setImg(org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image value) {
-                  copyOnWrite();
-                  instance.setImg(value);
-                  return this;
-              }
+        /**
+         * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+         */
+        public Builder setImg(org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image value) {
+          copyOnWrite();
+          instance.setImg(value);
+          return this;
+          }
 
-              /**
-               * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
-               */
-              public Builder mergeImg(org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image value) {
-                  copyOnWrite();
-                  instance.mergeImg(value);
-                  return this;
+        /**
+         * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+         */
+        public Builder mergeImg(org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image value) {
+          copyOnWrite();
+          instance.mergeImg(value);
+          return this;
         }
         /**
          * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
          */
         public Builder clearImg() {
-            copyOnWrite();
-            instance.clearImg();
-            return this;
+          copyOnWrite();
+          instance.clearImg();
+          return this;
         }
 
-              // @@protoc_insertion_point(builder_scope:org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell)
-          }
+        // @@protoc_insertion_point(builder_scope:org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell)
+      }
     }
 
     /**
@@ -1195,7 +1339,7 @@ public final class TargetCellsProto {
     public static final class Builder extends
             com.google.protobuf.GeneratedMessageLite.Builder<
                     org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells, Builder> implements
-        // @@protoc_insertion_point(builder_implements:org.yanzhe.robomaster.recodaemon.net.proto.TargetCells)
+            // @@protoc_insertion_point(builder_implements:org.yanzhe.robomaster.recodaemon.net.proto.TargetCells)
             org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCellsOrBuilder {
       // Construct using org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.newBuilder()
       private Builder() {
@@ -1203,90 +1347,137 @@ public final class TargetCellsProto {
       }
 
 
-        /**
-         * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-         */
-        public java.util.List<org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell> getCellsList() {
-        return java.util.Collections.unmodifiableList(
-            instance.getCellsList());
-        }
+      /**
+       * <code>.org.yanzhe.robomaster.recodaemon.net.proto.RecoMethod method = 1;</code>
+       */
+      public int getMethodValue() {
+        return instance.getMethodValue();
+      }
 
-        /**
-         * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
+      /**
+       * <code>.org.yanzhe.robomaster.recodaemon.net.proto.RecoMethod method = 1;</code>
+       */
+      public Builder setMethodValue(int value) {
+        copyOnWrite();
+        instance.setMethodValue(value);
+        return this;
+      }
+
+      /**
+       * <code>.org.yanzhe.robomaster.recodaemon.net.proto.RecoMethod method = 1;</code>
+       */
+      public org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.RecoMethod getMethod() {
+        return instance.getMethod();
+      }
+
+      /**
+       * <code>.org.yanzhe.robomaster.recodaemon.net.proto.RecoMethod method = 1;</code>
+       */
+      public Builder setMethod(org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.RecoMethod value) {
+        copyOnWrite();
+        instance.setMethod(value);
+        return this;
+      }
+      /**
+       * <code>.org.yanzhe.robomaster.recodaemon.net.proto.RecoMethod method = 1;</code>
+       */
+      public Builder clearMethod() {
+        copyOnWrite();
+        instance.clearMethod();
+        return this;
+      }
+
+      /**
+       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+       */
+      public java.util.List<org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell> getCellsList() {
+        return java.util.Collections.unmodifiableList(
+                instance.getCellsList());
+      }
+
+      /**
+       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
        */
       public int getCellsCount() {
         return instance.getCellsCount();
-      }/**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-         */
+      }
+
+      /**
+       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+       */
       public org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell getCells(int index) {
         return instance.getCells(index);
       }
+
       /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
+       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
        */
       public Builder setCells(
-              int index, org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell value) {
-          copyOnWrite();
-          instance.setCells(index, value);
-          return this;
+          int index, org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell value) {
+        copyOnWrite();
+        instance.setCells(index, value);
+        return this;
       }
       /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
+       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
        */
       public Builder setCells(
               int index, org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell.Builder builderForValue) {
-          copyOnWrite();
-          instance.setCells(index, builderForValue);
-        return this;
-      }
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      public Builder addCells(org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell value) {
-          copyOnWrite();
-          instance.addCells(value);
-        return this;
-      }
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      public Builder addCells(
-              int index, org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell value) {
-          copyOnWrite();
-          instance.addCells(index, value);
-        return this;
-      }
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      public Builder addCells(
-              org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell.Builder builderForValue) {
-          copyOnWrite();
-          instance.addCells(builderForValue);
-          return this;
-      }
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      public Builder addCells(
-              int index, org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell.Builder builderForValue) {
-          copyOnWrite();
-          instance.addCells(index, builderForValue);
-        return this;
-      }
-      /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
-       */
-      public Builder addAllCells(
-              java.lang.Iterable<? extends org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell> values) {
-          copyOnWrite();
-          instance.addAllCells(values);
+        copyOnWrite();
+        instance.setCells(index, builderForValue);
         return this;
       }
 
-        /**
-         * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
+      /**
+       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+       */
+      public Builder addCells(org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell value) {
+        copyOnWrite();
+        instance.addCells(value);
+        return this;
+      }
+
+      /**
+       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+       */
+      public Builder addCells(
+              int index, org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell value) {
+        copyOnWrite();
+        instance.addCells(index, value);
+        return this;
+      }
+
+      /**
+       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+       */
+      public Builder addCells(
+              org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell.Builder builderForValue) {
+        copyOnWrite();
+        instance.addCells(builderForValue);
+        return this;
+      }
+
+      /**
+       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+       */
+      public Builder addCells(
+              int index, org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell.Builder builderForValue) {
+        copyOnWrite();
+        instance.addCells(index, builderForValue);
+        return this;
+      }
+
+      /**
+       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
+       */
+      public Builder addAllCells(
+          java.lang.Iterable<? extends org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells.Cell> values) {
+        copyOnWrite();
+        instance.addAllCells(values);
+        return this;
+      }
+      /**
+       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
        */
       public Builder clearCells() {
         copyOnWrite();
@@ -1294,7 +1485,7 @@ public final class TargetCellsProto {
         return this;
       }
       /**
-       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 1;</code>
+       * <code>repeated .org.yanzhe.robomaster.recodaemon.net.proto.TargetCells.Cell cells = 2;</code>
        */
       public Builder removeCells(int index) {
         copyOnWrite();

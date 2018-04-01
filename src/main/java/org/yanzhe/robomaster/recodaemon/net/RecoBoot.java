@@ -18,7 +18,7 @@ import io.netty.util.concurrent.Future;
 import org.apache.commons.lang3.SystemUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.yanzhe.robomaster.recodaemon.core.DetectorFactory;
+import org.yanzhe.robomaster.recodaemon.core.classifier.ClassifierFactory;
 import org.yanzhe.robomaster.recodaemon.core.classifier.CnnDigitClassifier;
 import org.yanzhe.robomaster.recodaemon.core.classifier.ImageClassifier;
 
@@ -31,7 +31,7 @@ public class RecoBoot {
   protected static Logger logger = LogManager.getLogger(RecoBoot.class);
 
   public RecoBoot() {
-      recognitor = DetectorFactory.provide(CnnDigitClassifier.class, "models/mnist_cnn");
+    recognitor = ClassifierFactory.getDetector(CnnDigitClassifier.class);
   }
 
   public static void main(String[] args) {

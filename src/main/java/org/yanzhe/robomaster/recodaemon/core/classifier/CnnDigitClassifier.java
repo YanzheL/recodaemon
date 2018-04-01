@@ -19,6 +19,10 @@ public class CnnDigitClassifier extends AbstractImageClassifier {
     private SavedModelBundle model;
     private float[] inputSpace;
 
+    public CnnDigitClassifier() {
+        this("models/mnist_cnn");
+    }
+
     public CnnDigitClassifier(String modelDir) {
         this(modelDir, "serve");
     }
