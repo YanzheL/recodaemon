@@ -10,6 +10,7 @@ import org.yanzhe.robomaster.recodaemon.core.classifier.AbstractImageClassifier;
 import org.yanzhe.robomaster.recodaemon.core.processor.ImageProcessor;
 import org.yanzhe.robomaster.recodaemon.core.utils.CachedSingleton;
 import org.yanzhe.robomaster.recodaemon.core.utils.CoreUtils;
+import org.yanzhe.robomaster.recodaemon.net.proto.ImageProto;
 import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.Cell;
 import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells;
 
@@ -77,6 +78,7 @@ public class BatchCellsDetector<C extends AbstractImageClassifier, P extends Ima
                 .setGoal(UInt32Value.newBuilder().setValue(goal).build())
                 .setPos(Int32Value.newBuilder().setValue(bestPos).build())
                 .setSeq(UInt64Value.newBuilder().setValue(seq).build())
+                .setImg(ImageProto.Image.getDefaultInstance())
                 .build();
     }
 }
