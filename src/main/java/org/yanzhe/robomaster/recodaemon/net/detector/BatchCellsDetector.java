@@ -6,6 +6,8 @@ import com.google.protobuf.UInt32Value;
 import com.google.protobuf.UInt64Value;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.bytedeco.javacpp.opencv_core.Mat;
+import org.bytedeco.javacpp.opencv_core.Size;
 import org.yanzhe.robomaster.recodaemon.core.classifier.AbstractImageClassifier;
 import org.yanzhe.robomaster.recodaemon.core.processor.ImageProcessor;
 import org.yanzhe.robomaster.recodaemon.core.utils.CachedSingleton;
@@ -16,10 +18,12 @@ import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells;
 
 import java.util.List;
 
+import static org.bytedeco.javacpp.opencv_imgproc.resize;
+
 public class BatchCellsDetector<C extends AbstractImageClassifier, P extends ImageProcessor>
         implements Detector {
 
-    protected static Logger logger = LogManager.getLogger(FastCellsDetector.class);
+    protected static Logger logger = LogManager.getLogger(BatchCellsDetector.class);
     protected C classifier;
     protected P processor;
 
@@ -45,6 +49,7 @@ public class BatchCellsDetector<C extends AbstractImageClassifier, P extends Ima
     }
 
     protected Cell _detect(List<Cell> cells) {
+        int size = classifier.acceptSize();
         int bestPos = -1;
         int batchSize = cells.size();
         byte[][] imgBatch = new byte[batchSize][];
@@ -54,7 +59,12 @@ public class BatchCellsDetector<C extends AbstractImageClassifier, P extends Ima
         long seq = firstCell.getSeq().getValue();
         for (Cell cell : cells) {
             int pos = cell.getPos().getValue();
-            imgBatch[pos] = cell.getImg().getData().toByteArray();
+            Mat img = CoreUtils.toMat(cell.getImg());
+            Mat pureImg = processor.process(img);
+            resize(pureImg, pureImg, new Size(size, size));
+            byte[] pureData = new byte[pureImg.rows() * pureImg.cols() * pureImg.channels()];
+            pureImg.data().get(pureData);
+            imgBatch[pos] = pureData;
         }
         float[][] probas = new float[batchSize][10];
 
