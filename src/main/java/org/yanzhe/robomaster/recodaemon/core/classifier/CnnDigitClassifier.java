@@ -17,6 +17,7 @@ public class CnnDigitClassifier extends AbstractImageClassifier {
     private final int imgSize = 28;
     private Session sess;
     private SavedModelBundle model;
+    private static SavedModelBundle model_ = SavedModelBundle.load("models/mnist_cnn", "serve");
     private float[] inputSpace;
 
     public CnnDigitClassifier() {
@@ -29,12 +30,13 @@ public class CnnDigitClassifier extends AbstractImageClassifier {
 
     public CnnDigitClassifier(String modelDir, String tags) {
         logger.info("Tensorflow version = {}", TensorFlow.version());
-        this.model = SavedModelBundle.load(modelDir, tags);
+//        model = SavedModelBundle.load(modelDir, tags);
+        model = model_;
 //    Iterator<Operation> ops=model.graph().operations();
 //    while (ops.hasNext()){
 //      System.out.println(ops.next());
 //    }
-        this.sess = this.model.session();
+        sess = this.model.session();
         inputSpace = new float[9 * imgSize * imgSize];
     }
 
