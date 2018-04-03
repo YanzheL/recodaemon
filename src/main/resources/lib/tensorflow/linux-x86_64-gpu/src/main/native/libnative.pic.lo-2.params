@@ -1,0 +1,10 @@
+rcsD
+bazel-out/k8-py3-opt/bin/tensorflow/java/src/main/native/libnative.pic.lo
+bazel-out/k8-py3-opt/bin/tensorflow/java/src/main/native/_objs/native/tensorflow/java/src/main/native/exception_jni.pic.o
+bazel-out/k8-py3-opt/bin/tensorflow/java/src/main/native/_objs/native/tensorflow/java/src/main/native/graph_jni.pic.o
+bazel-out/k8-py3-opt/bin/tensorflow/java/src/main/native/_objs/native/tensorflow/java/src/main/native/operation_builder_jni.pic.o
+bazel-out/k8-py3-opt/bin/tensorflow/java/src/main/native/_objs/native/tensorflow/java/src/main/native/operation_jni.pic.o
+bazel-out/k8-py3-opt/bin/tensorflow/java/src/main/native/_objs/native/tensorflow/java/src/main/native/saved_model_bundle_jni.pic.o
+bazel-out/k8-py3-opt/bin/tensorflow/java/src/main/native/_objs/native/tensorflow/java/src/main/native/session_jni.pic.o
+bazel-out/k8-py3-opt/bin/tensorflow/java/src/main/native/_objs/native/tensorflow/java/src/main/native/tensor_jni.pic.o
+bazel-out/k8-py3-opt/bin/tensorflow/java/src/main/native/_objs/native/tensorflow/java/src/main/native/tensorflow_jni.pic.o

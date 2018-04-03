@@ -83,11 +83,11 @@
         <!--</resources>-->
     </build>
         <dependencies>
-            <dependency>
-                <groupId>org.tensorflow</groupId>
-                <artifactId>tensorflow</artifactId>
-                <version>1.7.0</version>
-            </dependency>
+            <!--<dependency>-->
+            <!--<groupId>org.tensorflow</groupId>-->
+            <!--<artifactId>tensorflow</artifactId>-->
+            <!--<version>1.7.0</version>-->
+            <!--</dependency>-->
             <!--<dependency>-->
             <!--<groupId>org.bytedeco</groupId>-->
             <!--<artifactId>javacv-platform</artifactId>-->
@@ -108,13 +108,13 @@
             <!--<artifactId>libtensorflow_jni_gpu</artifactId>-->
             <!--<version>1.7.0</version>-->
             <!--</dependency>-->
-            <!--<dependency>-->
-            <!--<groupId>org.tensorflow</groupId>-->
-            <!--<artifactId>libtensorflow</artifactId>-->
-            <!--<version>1.7.0</version>-->
-            <!--<scope>system</scope>-->
-            <!--<systemPath>${project.basedir}/src/main/resources/lib/tensorflow/libtensorflow.jar</systemPath>-->
-            <!--</dependency>-->
+
+            <dependency>
+                <groupId>org.tensorflow</groupId>
+                <artifactId>libtensorflow</artifactId>
+                <version>1.7.0</version>
+            </dependency>
+
             <!--<dependency>-->
             <!--<groupId>org.tensorflow</groupId>-->
             <!--<artifactId>libtensorflow_jni</artifactId>-->
