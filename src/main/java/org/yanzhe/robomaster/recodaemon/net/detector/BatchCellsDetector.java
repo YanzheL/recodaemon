@@ -54,7 +54,7 @@ public class BatchCellsDetector<C extends AbstractImageClassifier, P extends Ima
         long seq = firstCell.getSeq().getValue();
         for (Cell cell : cells) {
             int pos = cell.getPos().getValue();
-            imgBatch[pos] = cell.getImg().toByteArray();
+            imgBatch[pos] = cell.getImg().getData().toByteArray();
         }
         float[][] probas = new float[batchSize][10];
 
