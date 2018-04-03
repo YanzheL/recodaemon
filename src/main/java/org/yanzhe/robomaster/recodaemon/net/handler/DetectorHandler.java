@@ -25,7 +25,7 @@ public class DetectorHandler extends SimpleChannelInboundHandler<RpcRequest> {
   protected static Logger logger = LogManager.getLogger(DetectorHandler.class);
   protected RecoMethod lastMethod = RecoMethod.RECO_SIMPLE_HW_DIGIT;
   protected Detector detector;
-  protected DefaultEventExecutorGroup eventExecutors = new DefaultEventExecutorGroup(12);
+  protected static DefaultEventExecutorGroup eventExecutors = new DefaultEventExecutorGroup(12);
   protected int callerId;
 
   public DetectorHandler(boolean sync) {
