@@ -74,7 +74,7 @@ public class CoreUtils {
     int c = 0;
     for (int i = 0; i < len; ++i) {
       c++;
-      System.out.format("%2d", (int) buf.get(i));
+        System.out.format("%4d", (int) buf.get(i));
       if (c % 28 == 0) System.out.println();
     }
   }
