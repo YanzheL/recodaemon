@@ -14,6 +14,7 @@ import org.yanzhe.robomaster.recodaemon.core.utils.CoreUtils;
 import org.yanzhe.robomaster.recodaemon.net.proto.ImageProto;
 import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.Cell;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.bytedeco.javacpp.opencv_imgproc.resize;
@@ -36,7 +37,8 @@ public class BatchCellsDetector<C extends AbstractImageClassifier, P extends Ima
         int size = classifier.acceptSize();
         int bestPos = -1;
         int batchSize = cells.size();
-        byte[][] imgBatch = new byte[batchSize][];
+//        byte[][] imgBatch = new byte[batchSize][];
+        List<byte[]> imgBatch = new ArrayList<>();
         if (batchSize == 0) return Cell.getDefaultInstance();
         Cell firstCell = cells.get(0);
         int goal = firstCell.getGoal().getValue();
@@ -44,12 +46,13 @@ public class BatchCellsDetector<C extends AbstractImageClassifier, P extends Ima
         for (Cell cell : cells) {
             int pos = cell.getPos().getValue();
             Mat img = CoreUtils.toMat(cell.getImg());
-            CoreUtils.showImgMat(img);
+//            CoreUtils.showImgMat(img);
             Mat pureImg = processor.process(img);
             resize(pureImg, pureImg, new Size(size, size));
             byte[] pureData = new byte[pureImg.rows() * pureImg.cols() * pureImg.channels()];
             pureImg.data().get(pureData);
-            imgBatch[pos] = pureData;
+            imgBatch.add(pureData);
+//            imgBatch[pos] = pureData;
         }
         float[][] probas = new float[batchSize][10];
 

@@ -1199,21 +1199,6 @@ public final class RpcMessageProto {
             /**
              * <code>.google.protobuf.Any data = 3;</code>
              */
-            public Builder setData(
-                    com.google.protobuf.Any.Builder builderForValue) {
-                if (dataBuilder_ == null) {
-                    data_ = builderForValue.build();
-                    onChanged();
-                } else {
-                    dataBuilder_.setMessage(builderForValue.build());
-                }
-
-                return this;
-            }
-
-            /**
-             * <code>.google.protobuf.Any data = 3;</code>
-             */
             public Builder setData(com.google.protobuf.Any value) {
                 if (dataBuilder_ == null) {
                     if (value == null) {
@@ -1223,6 +1208,21 @@ public final class RpcMessageProto {
                     onChanged();
                 } else {
                     dataBuilder_.setMessage(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.Any data = 3;</code>
+             */
+            public Builder setData(
+                    com.google.protobuf.Any.Builder builderForValue) {
+                if (dataBuilder_ == null) {
+                    data_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    dataBuilder_.setMessage(builderForValue.build());
                 }
 
                 return this;
@@ -1981,21 +1981,6 @@ public final class RpcMessageProto {
             /**
              * <code>.google.protobuf.Any data = 3;</code>
              */
-            public Builder setData(
-                    com.google.protobuf.Any.Builder builderForValue) {
-                if (dataBuilder_ == null) {
-                    data_ = builderForValue.build();
-                    onChanged();
-                } else {
-                    dataBuilder_.setMessage(builderForValue.build());
-                }
-
-                return this;
-            }
-
-            /**
-             * <code>.google.protobuf.Any data = 3;</code>
-             */
             public Builder setData(com.google.protobuf.Any value) {
                 if (dataBuilder_ == null) {
                     if (value == null) {
@@ -2005,6 +1990,21 @@ public final class RpcMessageProto {
                     onChanged();
                 } else {
                     dataBuilder_.setMessage(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.Any data = 3;</code>
+             */
+            public Builder setData(
+                    com.google.protobuf.Any.Builder builderForValue) {
+                if (dataBuilder_ == null) {
+                    data_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    dataBuilder_.setMessage(builderForValue.build());
                 }
 
                 return this;

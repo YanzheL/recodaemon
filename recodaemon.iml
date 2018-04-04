@@ -11,6 +11,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.tensorflow:libtensorflow_jni_gpu:1.7.0" level="project" />
     <orderEntry type="library" name="Maven: org.tensorflow:libtensorflow:1.7.0" level="project" />
     <orderEntry type="library" name="Maven: org.bytedeco.javacpp-presets:opencv-platform:3.4.1-1.4.1" level="project" />
     <orderEntry type="library" name="Maven: org.bytedeco.javacpp-presets:opencv:3.4.1-1.4.1" level="project" />

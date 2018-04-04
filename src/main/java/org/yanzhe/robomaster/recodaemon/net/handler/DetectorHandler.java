@@ -13,7 +13,6 @@ import org.yanzhe.robomaster.recodaemon.core.processor.DefaultImageProcessor;
 import org.yanzhe.robomaster.recodaemon.core.processor.FirePurifyProcessor;
 import org.yanzhe.robomaster.recodaemon.net.detector.BatchCellsDetector;
 import org.yanzhe.robomaster.recodaemon.net.detector.Detector;
-import org.yanzhe.robomaster.recodaemon.net.detector.FastCellsDetector;
 import org.yanzhe.robomaster.recodaemon.net.detector.LedDetector;
 import org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RecoMethod;
 import org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RpcRequest;
@@ -65,7 +64,7 @@ public class DetectorHandler extends SimpleChannelInboundHandler<RpcRequest> {
     if (detector == null || method != lastMethod) {
       switch (method) {
         case RECO_FIRE_HW_DIGIT:
-            detector = new FastCellsDetector(CnnDigitClassifier.class, FirePurifyProcessor.class);
+            detector = new BatchCellsDetector(CnnDigitClassifier.class, FirePurifyProcessor.class);
           break;
         case RECO_SIMPLE_HW_DIGIT:
           detector = new BatchCellsDetector(CnnDigitClassifier.class, DefaultImageProcessor.class);
