@@ -9,7 +9,7 @@ import static org.bytedeco.javacpp.opencv_imgcodecs.imread;
 
 @Platform(
         include = "/home/trinity/CLionProjects/Num_opti/NativeProcessorLibrary.h",
-//        define = "DEBUG_CHECK_SRC_IMG",
+        define = "DEBUG_CHECK_SRC_IMG",
         link = "opencv_world"
 
 )
@@ -18,7 +18,7 @@ public class NativeProcessorLibrary {
     public static void main(String[] args) {
         long t1 = System.currentTimeMillis();
         Mat img = imread("/home/trinity/CLionProjects/Num_opti/5.png", 0);
-        //      NativeFireProcessor p=new NativeFireProcessor();
+//              NativeFireProcessor p=new NativeFireProcessor();
         for (int i = 0; i < 2000; ++i) {
             Mat result = new Mat();
             long tt = System.currentTimeMillis();
