@@ -1,6 +1,5 @@
 package org.yanzhe.robomaster.recodaemon.net.detector;
 
-import com.google.protobuf.Any;
 import com.google.protobuf.Int32Value;
 import com.google.protobuf.UInt32Value;
 import com.google.protobuf.UInt64Value;
@@ -14,14 +13,13 @@ import org.yanzhe.robomaster.recodaemon.core.utils.CachedSingleton;
 import org.yanzhe.robomaster.recodaemon.core.utils.CoreUtils;
 import org.yanzhe.robomaster.recodaemon.net.proto.ImageProto;
 import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.Cell;
-import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells;
 
 import java.util.List;
 
 import static org.bytedeco.javacpp.opencv_imgproc.resize;
 
 public class BatchCellsDetector<C extends AbstractImageClassifier, P extends ImageProcessor>
-        implements Detector {
+        extends AbstractCellsDetector {
 
     protected static Logger logger = LogManager.getLogger(BatchCellsDetector.class);
     protected C classifier;
@@ -32,22 +30,8 @@ public class BatchCellsDetector<C extends AbstractImageClassifier, P extends Ima
         this.processor = CachedSingleton.getInstance(processorCls);
     }
 
+
     @Override
-    public Any detect(Any body) throws Exception {
-        Any result;
-        //    try {
-        TargetCells targetCells = body.unpack(TargetCells.class);
-        List<Cell> cells = targetCells.getCellsList();
-
-        long t1 = System.currentTimeMillis();
-        Cell resultCell = _detect(cells);
-        long t2 = System.currentTimeMillis();
-        logger.debug("Batch size = {}, Time used = {} ms\n", cells.size(), t2 - t1);
-        result = Any.pack(resultCell);
-
-        return result;
-    }
-
     protected Cell _detect(List<Cell> cells) {
         int size = classifier.acceptSize();
         int bestPos = -1;
@@ -60,6 +44,7 @@ public class BatchCellsDetector<C extends AbstractImageClassifier, P extends Ima
         for (Cell cell : cells) {
             int pos = cell.getPos().getValue();
             Mat img = CoreUtils.toMat(cell.getImg());
+            CoreUtils.showImgMat(img);
             Mat pureImg = processor.process(img);
             resize(pureImg, pureImg, new Size(size, size));
             byte[] pureData = new byte[pureImg.rows() * pureImg.cols() * pureImg.channels()];

@@ -1,6 +1,5 @@
 package org.yanzhe.robomaster.recodaemon.net.detector;
 
-import com.google.protobuf.Any;
 import com.google.protobuf.Int32Value;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,14 +11,13 @@ import org.yanzhe.robomaster.recodaemon.core.utils.CachedSingleton;
 import org.yanzhe.robomaster.recodaemon.core.utils.CoreUtils;
 import org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image;
 import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.Cell;
-import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.TargetCells;
 
 import java.util.List;
 
 import static org.bytedeco.javacpp.opencv_imgproc.resize;
 
 public class FastCellsDetector<C extends AbstractImageClassifier, P extends ImageProcessor>
-        implements Detector {
+        extends AbstractCellsDetector {
 
   protected static Logger logger = LogManager.getLogger(FastCellsDetector.class);
   protected C classifier;
@@ -30,32 +28,10 @@ public class FastCellsDetector<C extends AbstractImageClassifier, P extends Imag
     this.processor = CachedSingleton.getInstance(processorCls);
   }
 
+
   @Override
-  public Any detect(Any body) throws Exception {
-    Any result;
-    //    try {
-    TargetCells targetCells = body.unpack(TargetCells.class);
-    List<Cell> cells = targetCells.getCellsList();
-
-    long t1 = System.currentTimeMillis();
-    Cell resultCell = _detect(cells);
-//    logger.debug(resultCell);
-    long t2 = System.currentTimeMillis();
-    logger.debug("Batch size = {}, Time used = {} ms\n", cells.size(), t2 - t1);
-    result = Any.pack(resultCell);
-//    logger.debug(result);
-
-    //    } catch (InvalidProtocolBufferException e) {
-    //      logger.error(
-    //          "Unpack body to type <TargetCells> failed, exception <{}>, msg '{}'",
-    //          e.toString(),
-    //          e.getMessage());
-    //    }
-
-    return result;
-  }
-
   protected Cell _detect(List<Cell> cells) {
+    int size = classifier.acceptSize();
     for (Cell cell : cells) {
       int goal = cell.getGoal().getValue();
       Image imgProto = cell.getImg();
@@ -65,7 +41,7 @@ public class FastCellsDetector<C extends AbstractImageClassifier, P extends Imag
       Mat pureImg = processor.process(img);
 //      imshow("a",pureImg);
 //            waitKey(0);
-      int size = classifier.acceptSize();
+
       resize(pureImg, pureImg, new Size(size, size));
 //      threshold(pureImg,pureImg,127,1,THRESH_BINARY_INV);
       byte[] pureData = new byte[pureImg.rows() * pureImg.cols() * pureImg.channels()];

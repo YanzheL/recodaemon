@@ -53,6 +53,12 @@ public class CoreUtils {
     showImgMat(imgData.getData().toByteArray());
   }
 
+    public static void showImgMat(Mat img) {
+        byte[] data = new byte[img.rows() * img.cols() * img.channels()];
+        img.data().get(data);
+        showImgMat(data);
+    }
+
   public static void showImgMat(byte[] imgData) {
     //    System.out.println();
     int c = 0;
