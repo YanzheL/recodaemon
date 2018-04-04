@@ -22,7 +22,7 @@ public class CoreUtils {
         maxPos = i;
       }
     }
-    return new float[]{maxPos, max};
+      return new float[]{maxPos, max};
   }
 
   public static void writeToInputBuf(Iterable<byte[]> imgBatch, FloatBuffer buf) {
@@ -60,11 +60,11 @@ public class CoreUtils {
     }
 
   public static void showImgMat(byte[] imgData) {
-    //    System.out.println();
+      System.out.println();
     int c = 0;
     for (byte b : imgData) {
       ++c;
-      System.out.format("%2d", 0xff & b);
+        System.out.format("%4d", 0xff & b);
       if (c % 28 == 0) System.out.println();
     }
   }
