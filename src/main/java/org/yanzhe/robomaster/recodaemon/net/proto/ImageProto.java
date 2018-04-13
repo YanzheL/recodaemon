@@ -354,7 +354,7 @@ public final class ImageProto {
         }
 
         @java.lang.Override
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
             return org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.internal_static_org_yanzhe_robomaster_recodaemon_net_proto_Image_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -1191,9 +1191,9 @@ public final class ImageProto {
 
 
             // @@protoc_insertion_point(builder_scope:org.yanzhe.robomaster.recodaemon.net.proto.Image)
-        }
-
     }
 
-    // @@protoc_insertion_point(outer_class_scope)
+  }
+
+  // @@protoc_insertion_point(outer_class_scope)
 }

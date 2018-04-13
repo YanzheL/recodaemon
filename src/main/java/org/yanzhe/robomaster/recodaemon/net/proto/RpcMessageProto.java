@@ -14,6 +14,16 @@ public final class RpcMessageProto {
     private static final
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
             internal_static_org_yanzhe_robomaster_recodaemon_net_proto_RpcResponse_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_org_yanzhe_robomaster_recodaemon_net_proto_RepeatedData_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_org_yanzhe_robomaster_recodaemon_net_proto_RepeatedData_fieldAccessorTable;
+    private static final com.google.protobuf.Descriptors.Descriptor
+            internal_static_org_yanzhe_robomaster_recodaemon_net_proto_Cell_descriptor;
+    private static final
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internal_static_org_yanzhe_robomaster_recodaemon_net_proto_Cell_fieldAccessorTable;
     private static com.google.protobuf.Descriptors.FileDescriptor
             descriptor;
 
@@ -22,23 +32,30 @@ public final class RpcMessageProto {
                 "\n\020RpcMessage.proto\022*org.yanzhe.robomaste" +
                         "r.recodaemon.net.proto\032\036google/protobuf/" +
                         "wrappers.proto\032\031google/protobuf/any.prot" +
-                        "o\"\212\001\n\nRpcRequest\022\020\n\010callerId\030\001 \001(\005\022F\n\006me" +
-                        "thod\030\002 \001(\01626.org.yanzhe.robomaster.recod" +
-                        "aemon.net.proto.RecoMethod\022\"\n\004data\030\003 \001(\013" +
-                        "2\024.google.protobuf.Any\"\207\001\n\013RpcResponse\022\020" +
-                        "\n\010callerId\030\001 \001(\005\022B\n\006status\030\002 \001(\01622.org.y" +
-                        "anzhe.robomaster.recodaemon.net.proto.St" +
-                        "atus\022\"\n\004data\030\003 \001(\0132\024.google.protobuf.Any" +
-                        "*\341\001\n\006Status\022\013\n\007SUCCESS\020\000\022\024\n\020BAD_REQUEST_" +
-                        "DATA\020\001\022\025\n\021BAD_REQUEST_PROTO\020\002\022\025\n\021SERVICE" +
-                        "_NOT_FOUND\020\003\022\024\n\020METHOD_NOT_FOUND\020\004\022\r\n\tRP" +
-                        "C_ERROR\020\005\022\016\n\nRPC_FAILED\020\006\022\031\n\025INVALID_REQ" +
-                        "UEST_PROTO\020\007\022\026\n\022BAD_RESPONSE_PROTO\020\010\022\020\n\014" +
-                        "UNKNOWN_HOST\020\t\022\014\n\010IO_ERROR\020\n*R\n\nRecoMeth" +
-                        "od\022\030\n\024RECO_SIMPLE_HW_DIGIT\020\000\022\026\n\022RECO_FIR" +
-                        "E_HW_DIGIT\020\001\022\022\n\016RECO_LED_DIGIT\020\002BB\n*org." +
-                        "yanzhe.robomaster.recodaemon.net.protoB\017" +
-                        "RpcMessageProtoH\001\370\001\001P\000b\006proto3"
+                        "o\032\013Image.proto\"\212\001\n\nRpcRequest\022\020\n\010callerI" +
+                        "d\030\001 \001(\005\022F\n\006method\030\002 \001(\01626.org.yanzhe.rob" +
+                        "omaster.recodaemon.net.proto.RecoMethod\022" +
+                        "\"\n\004data\030\003 \001(\0132\024.google.protobuf.Any\"\207\001\n\013" +
+                        "RpcResponse\022\020\n\010callerId\030\001 \001(\005\022B\n\006status\030" +
+                        "\002 \001(\01622.org.yanzhe.robomaster.recodaemon" +
+                        ".net.proto.Status\022\"\n\004data\030\003 \001(\0132\024.google" +
+                        ".protobuf.Any\"3\n\014RepeatedData\022#\n\005items\030\001" +
+                        " \003(\0132\024.google.protobuf.Any\"\307\001\n\004Cell\022)\n\003s" +
+                        "eq\030\001 \001(\0132\034.google.protobuf.UInt64Value\022*" +
+                        "\n\004goal\030\002 \001(\0132\034.google.protobuf.UInt32Val" +
+                        "ue\022(\n\003pos\030\003 \001(\0132\033.google.protobuf.Int32V" +
+                        "alue\022>\n\003img\030\004 \001(\01321.org.yanzhe.robomaste" +
+                        "r.recodaemon.net.proto.Image*\341\001\n\006Status\022" +
+                        "\013\n\007SUCCESS\020\000\022\024\n\020BAD_REQUEST_DATA\020\001\022\025\n\021BA" +
+                        "D_REQUEST_PROTO\020\002\022\025\n\021SERVICE_NOT_FOUND\020\003" +
+                        "\022\024\n\020METHOD_NOT_FOUND\020\004\022\r\n\tRPC_ERROR\020\005\022\016\n" +
+                        "\nRPC_FAILED\020\006\022\031\n\025INVALID_REQUEST_PROTO\020\007" +
+                        "\022\026\n\022BAD_RESPONSE_PROTO\020\010\022\020\n\014UNKNOWN_HOST" +
+                        "\020\t\022\014\n\010IO_ERROR\020\n*R\n\nRecoMethod\022\030\n\024RECO_S" +
+                        "IMPLE_HW_DIGIT\020\000\022\026\n\022RECO_FIRE_HW_DIGIT\020\001" +
+                        "\022\022\n\016RECO_LED_DIGIT\020\002BB\n*org.yanzhe.robom" +
+                        "aster.recodaemon.net.protoB\017RpcMessagePr" +
+                        "otoH\001\370\001\001P\000b\006proto3"
         };
         com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
                 new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -53,6 +70,7 @@ public final class RpcMessageProto {
                         new com.google.protobuf.Descriptors.FileDescriptor[]{
                                 com.google.protobuf.WrappersProto.getDescriptor(),
                                 com.google.protobuf.AnyProto.getDescriptor(),
+                                org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.getDescriptor(),
                         }, assigner);
         internal_static_org_yanzhe_robomaster_recodaemon_net_proto_RpcRequest_descriptor =
                 getDescriptor().getMessageTypes().get(0);
@@ -66,8 +84,21 @@ public final class RpcMessageProto {
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_org_yanzhe_robomaster_recodaemon_net_proto_RpcResponse_descriptor,
                 new java.lang.String[]{"CallerId", "Status", "Data",});
+        internal_static_org_yanzhe_robomaster_recodaemon_net_proto_RepeatedData_descriptor =
+                getDescriptor().getMessageTypes().get(2);
+        internal_static_org_yanzhe_robomaster_recodaemon_net_proto_RepeatedData_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_org_yanzhe_robomaster_recodaemon_net_proto_RepeatedData_descriptor,
+                new java.lang.String[]{"Items",});
+        internal_static_org_yanzhe_robomaster_recodaemon_net_proto_Cell_descriptor =
+                getDescriptor().getMessageTypes().get(3);
+        internal_static_org_yanzhe_robomaster_recodaemon_net_proto_Cell_fieldAccessorTable = new
+                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+                internal_static_org_yanzhe_robomaster_recodaemon_net_proto_Cell_descriptor,
+                new java.lang.String[]{"Seq", "Goal", "Pos", "Img",});
         com.google.protobuf.WrappersProto.getDescriptor();
         com.google.protobuf.AnyProto.getDescriptor();
+        org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.getDescriptor();
     }
 
     private RpcMessageProto() {
@@ -101,7 +132,7 @@ public final class RpcMessageProto {
          * <pre>
          * Server-side errors
          * </pre>
-         * <p>
+         *
          * <code>BAD_REQUEST_DATA = 1;</code>
          */
         BAD_REQUEST_DATA(1),
@@ -109,7 +140,7 @@ public final class RpcMessageProto {
          * <pre>
          * Server received bad request proto
          * </pre>
-         * <p>
+         *
          * <code>BAD_REQUEST_PROTO = 2;</code>
          */
         BAD_REQUEST_PROTO(2),
@@ -117,7 +148,7 @@ public final class RpcMessageProto {
          * <pre>
          * Service not found on server
          * </pre>
-         * <p>
+         *
          * <code>SERVICE_NOT_FOUND = 3;</code>
          */
         SERVICE_NOT_FOUND(3),
@@ -125,7 +156,7 @@ public final class RpcMessageProto {
          * <pre>
          * Method not found on server
          * </pre>
-         * <p>
+         *
          * <code>METHOD_NOT_FOUND = 4;</code>
          */
         METHOD_NOT_FOUND(4),
@@ -133,7 +164,7 @@ public final class RpcMessageProto {
          * <pre>
          * Rpc threw exception on server
          * </pre>
-         * <p>
+         *
          * <code>RPC_ERROR = 5;</code>
          */
         RPC_ERROR(5),
@@ -141,7 +172,7 @@ public final class RpcMessageProto {
          * <pre>
          * Rpc failed on server
          * </pre>
-         * <p>
+         *
          * <code>RPC_FAILED = 6;</code>
          */
         RPC_FAILED(6),
@@ -149,7 +180,7 @@ public final class RpcMessageProto {
          * <pre>
          * Client-side errors (these are returned by the client-side code)
          * </pre>
-         * <p>
+         *
          * <code>INVALID_REQUEST_PROTO = 7;</code>
          */
         INVALID_REQUEST_PROTO(7),
@@ -157,7 +188,7 @@ public final class RpcMessageProto {
          * <pre>
          * Server returned a bad response proto
          * </pre>
-         * <p>
+         *
          * <code>BAD_RESPONSE_PROTO = 8;</code>
          */
         BAD_RESPONSE_PROTO(8),
@@ -165,7 +196,7 @@ public final class RpcMessageProto {
          * <pre>
          * Could not find supplied host
          * </pre>
-         * <p>
+         *
          * <code>UNKNOWN_HOST = 9;</code>
          */
         UNKNOWN_HOST(9),
@@ -173,7 +204,7 @@ public final class RpcMessageProto {
          * <pre>
          * I/O error while communicating with server
          * </pre>
-         * <p>
+         *
          * <code>IO_ERROR = 10;</code>
          */
         IO_ERROR(10),
@@ -187,7 +218,7 @@ public final class RpcMessageProto {
          * <pre>
          * Server-side errors
          * </pre>
-         * <p>
+         *
          * <code>BAD_REQUEST_DATA = 1;</code>
          */
         public static final int BAD_REQUEST_DATA_VALUE = 1;
@@ -195,7 +226,7 @@ public final class RpcMessageProto {
          * <pre>
          * Server received bad request proto
          * </pre>
-         * <p>
+         *
          * <code>BAD_REQUEST_PROTO = 2;</code>
          */
         public static final int BAD_REQUEST_PROTO_VALUE = 2;
@@ -203,7 +234,7 @@ public final class RpcMessageProto {
          * <pre>
          * Service not found on server
          * </pre>
-         * <p>
+         *
          * <code>SERVICE_NOT_FOUND = 3;</code>
          */
         public static final int SERVICE_NOT_FOUND_VALUE = 3;
@@ -211,7 +242,7 @@ public final class RpcMessageProto {
          * <pre>
          * Method not found on server
          * </pre>
-         * <p>
+         *
          * <code>METHOD_NOT_FOUND = 4;</code>
          */
         public static final int METHOD_NOT_FOUND_VALUE = 4;
@@ -219,7 +250,7 @@ public final class RpcMessageProto {
          * <pre>
          * Rpc threw exception on server
          * </pre>
-         * <p>
+         *
          * <code>RPC_ERROR = 5;</code>
          */
         public static final int RPC_ERROR_VALUE = 5;
@@ -227,7 +258,7 @@ public final class RpcMessageProto {
          * <pre>
          * Rpc failed on server
          * </pre>
-         * <p>
+         *
          * <code>RPC_FAILED = 6;</code>
          */
         public static final int RPC_FAILED_VALUE = 6;
@@ -235,7 +266,7 @@ public final class RpcMessageProto {
          * <pre>
          * Client-side errors (these are returned by the client-side code)
          * </pre>
-         * <p>
+         *
          * <code>INVALID_REQUEST_PROTO = 7;</code>
          */
         public static final int INVALID_REQUEST_PROTO_VALUE = 7;
@@ -243,7 +274,7 @@ public final class RpcMessageProto {
          * <pre>
          * Server returned a bad response proto
          * </pre>
-         * <p>
+         *
          * <code>BAD_RESPONSE_PROTO = 8;</code>
          */
         public static final int BAD_RESPONSE_PROTO_VALUE = 8;
@@ -251,7 +282,7 @@ public final class RpcMessageProto {
          * <pre>
          * Could not find supplied host
          * </pre>
-         * <p>
+         *
          * <code>UNKNOWN_HOST = 9;</code>
          */
         public static final int UNKNOWN_HOST_VALUE = 9;
@@ -259,7 +290,7 @@ public final class RpcMessageProto {
          * <pre>
          * I/O error while communicating with server
          * </pre>
-         * <p>
+         *
          * <code>IO_ERROR = 10;</code>
          */
         public static final int IO_ERROR_VALUE = 10;
@@ -536,6 +567,104 @@ public final class RpcMessageProto {
         com.google.protobuf.AnyOrBuilder getDataOrBuilder();
     }
 
+    public interface RepeatedDataOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:org.yanzhe.robomaster.recodaemon.net.proto.RepeatedData)
+            com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>repeated .google.protobuf.Any items = 1;</code>
+         */
+        java.util.List<com.google.protobuf.Any>
+        getItemsList();
+
+        /**
+         * <code>repeated .google.protobuf.Any items = 1;</code>
+         */
+        com.google.protobuf.Any getItems(int index);
+
+        /**
+         * <code>repeated .google.protobuf.Any items = 1;</code>
+         */
+        int getItemsCount();
+
+        /**
+         * <code>repeated .google.protobuf.Any items = 1;</code>
+         */
+        java.util.List<? extends com.google.protobuf.AnyOrBuilder>
+        getItemsOrBuilderList();
+
+        /**
+         * <code>repeated .google.protobuf.Any items = 1;</code>
+         */
+        com.google.protobuf.AnyOrBuilder getItemsOrBuilder(
+                int index);
+    }
+
+    public interface CellOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:org.yanzhe.robomaster.recodaemon.net.proto.Cell)
+            com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>.google.protobuf.UInt64Value seq = 1;</code>
+         */
+        boolean hasSeq();
+
+        /**
+         * <code>.google.protobuf.UInt64Value seq = 1;</code>
+         */
+        com.google.protobuf.UInt64Value getSeq();
+
+        /**
+         * <code>.google.protobuf.UInt64Value seq = 1;</code>
+         */
+        com.google.protobuf.UInt64ValueOrBuilder getSeqOrBuilder();
+
+        /**
+         * <code>.google.protobuf.UInt32Value goal = 2;</code>
+         */
+        boolean hasGoal();
+
+        /**
+         * <code>.google.protobuf.UInt32Value goal = 2;</code>
+         */
+        com.google.protobuf.UInt32Value getGoal();
+
+        /**
+         * <code>.google.protobuf.UInt32Value goal = 2;</code>
+         */
+        com.google.protobuf.UInt32ValueOrBuilder getGoalOrBuilder();
+
+        /**
+         * <code>.google.protobuf.Int32Value pos = 3;</code>
+         */
+        boolean hasPos();
+
+        /**
+         * <code>.google.protobuf.Int32Value pos = 3;</code>
+         */
+        com.google.protobuf.Int32Value getPos();
+
+        /**
+         * <code>.google.protobuf.Int32Value pos = 3;</code>
+         */
+        com.google.protobuf.Int32ValueOrBuilder getPosOrBuilder();
+
+        /**
+         * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+         */
+        boolean hasImg();
+
+        /**
+         * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+         */
+        org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image getImg();
+
+        /**
+         * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+         */
+        org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.ImageOrBuilder getImgOrBuilder();
+    }
+
     /**
      * Protobuf type {@code org.yanzhe.robomaster.recodaemon.net.proto.RpcRequest}
      */
@@ -744,11 +873,11 @@ public final class RpcMessageProto {
             return PARSER;
         }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
-        }
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+        return this.unknownFields;
+    }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -1199,6 +1328,21 @@ public final class RpcMessageProto {
             /**
              * <code>.google.protobuf.Any data = 3;</code>
              */
+            public Builder setData(
+                    com.google.protobuf.Any.Builder builderForValue) {
+                if (dataBuilder_ == null) {
+                    data_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    dataBuilder_.setMessage(builderForValue.build());
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.Any data = 3;</code>
+             */
             public Builder setData(com.google.protobuf.Any value) {
                 if (dataBuilder_ == null) {
                     if (value == null) {
@@ -1208,21 +1352,6 @@ public final class RpcMessageProto {
                     onChanged();
                 } else {
                     dataBuilder_.setMessage(value);
-                }
-
-                return this;
-            }
-
-            /**
-             * <code>.google.protobuf.Any data = 3;</code>
-             */
-            public Builder setData(
-                    com.google.protobuf.Any.Builder builderForValue) {
-                if (dataBuilder_ == null) {
-                    data_ = builderForValue.build();
-                    onChanged();
-                } else {
-                    dataBuilder_.setMessage(builderForValue.build());
                 }
 
                 return this;
@@ -1516,11 +1645,11 @@ public final class RpcMessageProto {
 
         public static Builder newBuilder(org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RpcResponse prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
+    }
 
-        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RpcResponse getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
+    public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RpcResponse getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+    }
 
         public static com.google.protobuf.Parser<RpcResponse> parser() {
             return PARSER;
@@ -1981,6 +2110,21 @@ public final class RpcMessageProto {
             /**
              * <code>.google.protobuf.Any data = 3;</code>
              */
+            public Builder setData(
+                    com.google.protobuf.Any.Builder builderForValue) {
+                if (dataBuilder_ == null) {
+                    data_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    dataBuilder_.setMessage(builderForValue.build());
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.Any data = 3;</code>
+             */
             public Builder setData(com.google.protobuf.Any value) {
                 if (dataBuilder_ == null) {
                     if (value == null) {
@@ -1990,21 +2134,6 @@ public final class RpcMessageProto {
                     onChanged();
                 } else {
                     dataBuilder_.setMessage(value);
-                }
-
-                return this;
-            }
-
-            /**
-             * <code>.google.protobuf.Any data = 3;</code>
-             */
-            public Builder setData(
-                    com.google.protobuf.Any.Builder builderForValue) {
-                if (dataBuilder_ == null) {
-                    data_ = builderForValue.build();
-                    onChanged();
-                } else {
-                    dataBuilder_.setMessage(builderForValue.build());
                 }
 
                 return this;
@@ -2100,5 +2229,2018 @@ public final class RpcMessageProto {
 
     }
 
-    // @@protoc_insertion_point(outer_class_scope)
+    /**
+     * Protobuf type {@code org.yanzhe.robomaster.recodaemon.net.proto.RepeatedData}
+     */
+    public static final class RepeatedData extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:org.yanzhe.robomaster.recodaemon.net.proto.RepeatedData)
+            RepeatedDataOrBuilder {
+        public static final int ITEMS_FIELD_NUMBER = 1;
+        private static final long serialVersionUID = 0L;
+        // @@protoc_insertion_point(class_scope:org.yanzhe.robomaster.recodaemon.net.proto.RepeatedData)
+        private static final org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData DEFAULT_INSTANCE;
+        private static final com.google.protobuf.Parser<RepeatedData>
+                PARSER = new com.google.protobuf.AbstractParser<RepeatedData>() {
+            @java.lang.Override
+            public RepeatedData parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new RepeatedData(input, extensionRegistry);
+            }
+        };
+
+        static {
+            DEFAULT_INSTANCE = new org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData();
+        }
+
+        private java.util.List<com.google.protobuf.Any> items_;
+        private byte memoizedIsInitialized = -1;
+
+        // Use RepeatedData.newBuilder() to construct.
+        private RepeatedData(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
+        }
+
+        private RepeatedData() {
+            items_ = java.util.Collections.emptyList();
+        }
+
+        private RepeatedData(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            if (extensionRegistry == null) {
+                throw new java.lang.NullPointerException();
+            }
+            int mutable_bitField0_ = 0;
+            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                    com.google.protobuf.UnknownFieldSet.newBuilder();
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        case 10: {
+                            if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                                items_ = new java.util.ArrayList<com.google.protobuf.Any>();
+                                mutable_bitField0_ |= 0x00000001;
+                            }
+                            items_.add(
+                                    input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry));
+                            break;
+                        }
+                        default: {
+                            if (!parseUnknownFieldProto3(
+                                    input, unknownFields, extensionRegistry, tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                    items_ = java.util.Collections.unmodifiableList(items_);
+                }
+                this.unknownFields = unknownFields.build();
+                makeExtensionsImmutable();
+            }
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.internal_static_org_yanzhe_robomaster_recodaemon_net_proto_RepeatedData_descriptor;
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        public static com.google.protobuf.Parser<RepeatedData> parser() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.internal_static_org_yanzhe_robomaster_recodaemon_net_proto_RepeatedData_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData.class, org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData.Builder.class);
+        }
+
+        /**
+         * <code>repeated .google.protobuf.Any items = 1;</code>
+         */
+        public java.util.List<com.google.protobuf.Any> getItemsList() {
+            return items_;
+        }
+
+        /**
+         * <code>repeated .google.protobuf.Any items = 1;</code>
+         */
+        public java.util.List<? extends com.google.protobuf.AnyOrBuilder>
+        getItemsOrBuilderList() {
+            return items_;
+        }
+
+        /**
+         * <code>repeated .google.protobuf.Any items = 1;</code>
+         */
+        public int getItemsCount() {
+            return items_.size();
+        }
+
+        /**
+         * <code>repeated .google.protobuf.Any items = 1;</code>
+         */
+        public com.google.protobuf.Any getItems(int index) {
+            return items_.get(index);
+        }
+
+        /**
+         * <code>repeated .google.protobuf.Any items = 1;</code>
+         */
+        public com.google.protobuf.AnyOrBuilder getItemsOrBuilder(
+                int index) {
+            return items_.get(index);
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        @java.lang.Override
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            for (int i = 0; i < items_.size(); i++) {
+                output.writeMessage(1, items_.get(i));
+            }
+            unknownFields.writeTo(output);
+        }
+
+        @java.lang.Override
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            for (int i = 0; i < items_.size(); i++) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(1, items_.get(i));
+            }
+            size += unknownFields.getSerializedSize();
+            memoizedSize = size;
+            return size;
+        }
+
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData)) {
+                return super.equals(obj);
+            }
+            org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData other = (org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData) obj;
+
+            boolean result = true;
+            result = result && getItemsList()
+                    .equals(other.getItemsList());
+            result = result && unknownFields.equals(other.unknownFields);
+            return result;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            if (getItemsCount() > 0) {
+                hash = (37 * hash) + ITEMS_FIELD_NUMBER;
+                hash = (53 * hash) + getItemsList().hashCode();
+            }
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        @java.lang.Override
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        @java.lang.Override
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<RepeatedData> getParserForType() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        public org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
+        /**
+         * Protobuf type {@code org.yanzhe.robomaster.recodaemon.net.proto.RepeatedData}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:org.yanzhe.robomaster.recodaemon.net.proto.RepeatedData)
+                org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedDataOrBuilder {
+            private int bitField0_;
+            private java.util.List<com.google.protobuf.Any> items_ =
+                    java.util.Collections.emptyList();
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                    com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> itemsBuilder_;
+
+            // Construct using org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData.newBuilder()
+            private Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.internal_static_org_yanzhe_robomaster_recodaemon_net_proto_RepeatedData_descriptor;
+            }
+
+            @java.lang.Override
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.internal_static_org_yanzhe_robomaster_recodaemon_net_proto_RepeatedData_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData.class, org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData.Builder.class);
+            }
+
+            private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                    getItemsFieldBuilder();
+                }
+            }
+
+            @java.lang.Override
+            public Builder clear() {
+                super.clear();
+                if (itemsBuilder_ == null) {
+                    items_ = java.util.Collections.emptyList();
+                    bitField0_ = (bitField0_ & ~0x00000001);
+                } else {
+                    itemsBuilder_.clear();
+                }
+                return this;
+            }
+
+            @java.lang.Override
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.internal_static_org_yanzhe_robomaster_recodaemon_net_proto_RepeatedData_descriptor;
+            }
+
+            @java.lang.Override
+            public org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData getDefaultInstanceForType() {
+                return org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData.getDefaultInstance();
+            }
+
+            @java.lang.Override
+            public org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData build() {
+                org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            @java.lang.Override
+            public org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData buildPartial() {
+                org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData result = new org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData(this);
+                int from_bitField0_ = bitField0_;
+                if (itemsBuilder_ == null) {
+                    if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                        items_ = java.util.Collections.unmodifiableList(items_);
+                        bitField0_ = (bitField0_ & ~0x00000001);
+                    }
+                    result.items_ = items_;
+                } else {
+                    result.items_ = itemsBuilder_.build();
+                }
+                onBuilt();
+                return result;
+            }
+
+            @java.lang.Override
+            public Builder clone() {
+                return super.clone();
+            }
+
+            @java.lang.Override
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.setField(field, value);
+            }
+
+            @java.lang.Override
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return super.clearField(field);
+            }
+
+            @java.lang.Override
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return super.clearOneof(oneof);
+            }
+
+            @java.lang.Override
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, java.lang.Object value) {
+                return super.setRepeatedField(field, index, value);
+            }
+
+            @java.lang.Override
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.addRepeatedField(field, value);
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData) {
+                    return mergeFrom((org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData other) {
+                if (other == org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData.getDefaultInstance())
+                    return this;
+                if (itemsBuilder_ == null) {
+                    if (!other.items_.isEmpty()) {
+                        if (items_.isEmpty()) {
+                            items_ = other.items_;
+                            bitField0_ = (bitField0_ & ~0x00000001);
+                        } else {
+                            ensureItemsIsMutable();
+                            items_.addAll(other.items_);
+                        }
+                        onChanged();
+                    }
+                } else {
+                    if (!other.items_.isEmpty()) {
+                        if (itemsBuilder_.isEmpty()) {
+                            itemsBuilder_.dispose();
+                            itemsBuilder_ = null;
+                            items_ = other.items_;
+                            bitField0_ = (bitField0_ & ~0x00000001);
+                            itemsBuilder_ =
+                                    com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                                            getItemsFieldBuilder() : null;
+                        } else {
+                            itemsBuilder_.addAllMessages(other.items_);
+                        }
+                    }
+                }
+                this.mergeUnknownFields(other.unknownFields);
+                onChanged();
+                return this;
+            }
+
+            @java.lang.Override
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RepeatedData) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            private void ensureItemsIsMutable() {
+                if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+                    items_ = new java.util.ArrayList<com.google.protobuf.Any>(items_);
+                    bitField0_ |= 0x00000001;
+                }
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public java.util.List<com.google.protobuf.Any> getItemsList() {
+                if (itemsBuilder_ == null) {
+                    return java.util.Collections.unmodifiableList(items_);
+                } else {
+                    return itemsBuilder_.getMessageList();
+                }
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public int getItemsCount() {
+                if (itemsBuilder_ == null) {
+                    return items_.size();
+                } else {
+                    return itemsBuilder_.getCount();
+                }
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public com.google.protobuf.Any getItems(int index) {
+                if (itemsBuilder_ == null) {
+                    return items_.get(index);
+                } else {
+                    return itemsBuilder_.getMessage(index);
+                }
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public Builder setItems(
+                    int index, com.google.protobuf.Any value) {
+                if (itemsBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    ensureItemsIsMutable();
+                    items_.set(index, value);
+                    onChanged();
+                } else {
+                    itemsBuilder_.setMessage(index, value);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public Builder setItems(
+                    int index, com.google.protobuf.Any.Builder builderForValue) {
+                if (itemsBuilder_ == null) {
+                    ensureItemsIsMutable();
+                    items_.set(index, builderForValue.build());
+                    onChanged();
+                } else {
+                    itemsBuilder_.setMessage(index, builderForValue.build());
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public Builder addItems(com.google.protobuf.Any value) {
+                if (itemsBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    ensureItemsIsMutable();
+                    items_.add(value);
+                    onChanged();
+                } else {
+                    itemsBuilder_.addMessage(value);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public Builder addItems(
+                    int index, com.google.protobuf.Any value) {
+                if (itemsBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    ensureItemsIsMutable();
+                    items_.add(index, value);
+                    onChanged();
+                } else {
+                    itemsBuilder_.addMessage(index, value);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public Builder addItems(
+                    com.google.protobuf.Any.Builder builderForValue) {
+                if (itemsBuilder_ == null) {
+                    ensureItemsIsMutable();
+                    items_.add(builderForValue.build());
+                    onChanged();
+                } else {
+                    itemsBuilder_.addMessage(builderForValue.build());
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public Builder addItems(
+                    int index, com.google.protobuf.Any.Builder builderForValue) {
+                if (itemsBuilder_ == null) {
+                    ensureItemsIsMutable();
+                    items_.add(index, builderForValue.build());
+                    onChanged();
+                } else {
+                    itemsBuilder_.addMessage(index, builderForValue.build());
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public Builder addAllItems(
+                    java.lang.Iterable<? extends com.google.protobuf.Any> values) {
+                if (itemsBuilder_ == null) {
+                    ensureItemsIsMutable();
+                    com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                            values, items_);
+                    onChanged();
+                } else {
+                    itemsBuilder_.addAllMessages(values);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public Builder clearItems() {
+                if (itemsBuilder_ == null) {
+                    items_ = java.util.Collections.emptyList();
+                    bitField0_ = (bitField0_ & ~0x00000001);
+                    onChanged();
+                } else {
+                    itemsBuilder_.clear();
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public Builder removeItems(int index) {
+                if (itemsBuilder_ == null) {
+                    ensureItemsIsMutable();
+                    items_.remove(index);
+                    onChanged();
+                } else {
+                    itemsBuilder_.remove(index);
+                }
+                return this;
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public com.google.protobuf.Any.Builder getItemsBuilder(
+                    int index) {
+                return getItemsFieldBuilder().getBuilder(index);
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public com.google.protobuf.AnyOrBuilder getItemsOrBuilder(
+                    int index) {
+                if (itemsBuilder_ == null) {
+                    return items_.get(index);
+                } else {
+                    return itemsBuilder_.getMessageOrBuilder(index);
+                }
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public java.util.List<? extends com.google.protobuf.AnyOrBuilder>
+            getItemsOrBuilderList() {
+                if (itemsBuilder_ != null) {
+                    return itemsBuilder_.getMessageOrBuilderList();
+                } else {
+                    return java.util.Collections.unmodifiableList(items_);
+                }
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public com.google.protobuf.Any.Builder addItemsBuilder() {
+                return getItemsFieldBuilder().addBuilder(
+                        com.google.protobuf.Any.getDefaultInstance());
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public com.google.protobuf.Any.Builder addItemsBuilder(
+                    int index) {
+                return getItemsFieldBuilder().addBuilder(
+                        index, com.google.protobuf.Any.getDefaultInstance());
+            }
+
+            /**
+             * <code>repeated .google.protobuf.Any items = 1;</code>
+             */
+            public java.util.List<com.google.protobuf.Any.Builder>
+            getItemsBuilderList() {
+                return getItemsFieldBuilder().getBuilderList();
+            }
+
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                    com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>
+            getItemsFieldBuilder() {
+                if (itemsBuilder_ == null) {
+                    itemsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                            com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
+                            items_,
+                            ((bitField0_ & 0x00000001) == 0x00000001),
+                            getParentForChildren(),
+                            isClean());
+                    items_ = null;
+                }
+                return itemsBuilder_;
+            }
+
+            @java.lang.Override
+            public final Builder setUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.setUnknownFieldsProto3(unknownFields);
+            }
+
+            @java.lang.Override
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.mergeUnknownFields(unknownFields);
+            }
+
+
+            // @@protoc_insertion_point(builder_scope:org.yanzhe.robomaster.recodaemon.net.proto.RepeatedData)
+        }
+
+    }
+
+    /**
+     * Protobuf type {@code org.yanzhe.robomaster.recodaemon.net.proto.Cell}
+     */
+    public static final class Cell extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:org.yanzhe.robomaster.recodaemon.net.proto.Cell)
+            CellOrBuilder {
+        public static final int SEQ_FIELD_NUMBER = 1;
+        public static final int GOAL_FIELD_NUMBER = 2;
+        public static final int POS_FIELD_NUMBER = 3;
+        public static final int IMG_FIELD_NUMBER = 4;
+        private static final long serialVersionUID = 0L;
+        // @@protoc_insertion_point(class_scope:org.yanzhe.robomaster.recodaemon.net.proto.Cell)
+        private static final org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell DEFAULT_INSTANCE;
+        private static final com.google.protobuf.Parser<Cell>
+                PARSER = new com.google.protobuf.AbstractParser<Cell>() {
+            @java.lang.Override
+            public Cell parsePartialFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws com.google.protobuf.InvalidProtocolBufferException {
+                return new Cell(input, extensionRegistry);
+            }
+        };
+
+        static {
+            DEFAULT_INSTANCE = new org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell();
+        }
+
+        private com.google.protobuf.UInt64Value seq_;
+        private com.google.protobuf.UInt32Value goal_;
+        private com.google.protobuf.Int32Value pos_;
+        private org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image img_;
+        private byte memoizedIsInitialized = -1;
+
+        // Use Cell.newBuilder() to construct.
+        private Cell(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
+        }
+
+        private Cell() {
+        }
+
+        private Cell(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            if (extensionRegistry == null) {
+                throw new java.lang.NullPointerException();
+            }
+            int mutable_bitField0_ = 0;
+            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+                    com.google.protobuf.UnknownFieldSet.newBuilder();
+            try {
+                boolean done = false;
+                while (!done) {
+                    int tag = input.readTag();
+                    switch (tag) {
+                        case 0:
+                            done = true;
+                            break;
+                        case 10: {
+                            com.google.protobuf.UInt64Value.Builder subBuilder = null;
+                            if (seq_ != null) {
+                                subBuilder = seq_.toBuilder();
+                            }
+                            seq_ = input.readMessage(com.google.protobuf.UInt64Value.parser(), extensionRegistry);
+                            if (subBuilder != null) {
+                                subBuilder.mergeFrom(seq_);
+                                seq_ = subBuilder.buildPartial();
+                            }
+
+                            break;
+                        }
+                        case 18: {
+                            com.google.protobuf.UInt32Value.Builder subBuilder = null;
+                            if (goal_ != null) {
+                                subBuilder = goal_.toBuilder();
+                            }
+                            goal_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
+                            if (subBuilder != null) {
+                                subBuilder.mergeFrom(goal_);
+                                goal_ = subBuilder.buildPartial();
+                            }
+
+                            break;
+                        }
+                        case 26: {
+                            com.google.protobuf.Int32Value.Builder subBuilder = null;
+                            if (pos_ != null) {
+                                subBuilder = pos_.toBuilder();
+                            }
+                            pos_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
+                            if (subBuilder != null) {
+                                subBuilder.mergeFrom(pos_);
+                                pos_ = subBuilder.buildPartial();
+                            }
+
+                            break;
+                        }
+                        case 34: {
+                            org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.Builder subBuilder = null;
+                            if (img_ != null) {
+                                subBuilder = img_.toBuilder();
+                            }
+                            img_ = input.readMessage(org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.parser(), extensionRegistry);
+                            if (subBuilder != null) {
+                                subBuilder.mergeFrom(img_);
+                                img_ = subBuilder.buildPartial();
+                            }
+
+                            break;
+                        }
+                        default: {
+                            if (!parseUnknownFieldProto3(
+                                    input, unknownFields, extensionRegistry, tag)) {
+                                done = true;
+                            }
+                            break;
+                        }
+                    }
+                }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                        e).setUnfinishedMessage(this);
+            } finally {
+                this.unknownFields = unknownFields.build();
+                makeExtensionsImmutable();
+            }
+        }
+
+        public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+            return org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.internal_static_org_yanzhe_robomaster_recodaemon_net_proto_Cell_descriptor;
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                    .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        public static com.google.protobuf.Parser<Cell> parser() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+            return org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.internal_static_org_yanzhe_robomaster_recodaemon_net_proto_Cell_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                            org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell.class, org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell.Builder.class);
+        }
+
+        /**
+         * <code>.google.protobuf.UInt64Value seq = 1;</code>
+         */
+        public boolean hasSeq() {
+            return seq_ != null;
+        }
+
+        /**
+         * <code>.google.protobuf.UInt64Value seq = 1;</code>
+         */
+        public com.google.protobuf.UInt64Value getSeq() {
+            return seq_ == null ? com.google.protobuf.UInt64Value.getDefaultInstance() : seq_;
+        }
+
+        /**
+         * <code>.google.protobuf.UInt64Value seq = 1;</code>
+         */
+        public com.google.protobuf.UInt64ValueOrBuilder getSeqOrBuilder() {
+            return getSeq();
+        }
+
+        /**
+         * <code>.google.protobuf.UInt32Value goal = 2;</code>
+         */
+        public boolean hasGoal() {
+            return goal_ != null;
+        }
+
+        /**
+         * <code>.google.protobuf.UInt32Value goal = 2;</code>
+         */
+        public com.google.protobuf.UInt32Value getGoal() {
+            return goal_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : goal_;
+        }
+
+        /**
+         * <code>.google.protobuf.UInt32Value goal = 2;</code>
+         */
+        public com.google.protobuf.UInt32ValueOrBuilder getGoalOrBuilder() {
+            return getGoal();
+        }
+
+        /**
+         * <code>.google.protobuf.Int32Value pos = 3;</code>
+         */
+        public boolean hasPos() {
+            return pos_ != null;
+        }
+
+        /**
+         * <code>.google.protobuf.Int32Value pos = 3;</code>
+         */
+        public com.google.protobuf.Int32Value getPos() {
+            return pos_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : pos_;
+        }
+
+        /**
+         * <code>.google.protobuf.Int32Value pos = 3;</code>
+         */
+        public com.google.protobuf.Int32ValueOrBuilder getPosOrBuilder() {
+            return getPos();
+        }
+
+        /**
+         * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+         */
+        public boolean hasImg() {
+            return img_ != null;
+        }
+
+        /**
+         * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+         */
+        public org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image getImg() {
+            return img_ == null ? org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.getDefaultInstance() : img_;
+        }
+
+        /**
+         * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+         */
+        public org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.ImageOrBuilder getImgOrBuilder() {
+            return getImg();
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+        }
+
+        @java.lang.Override
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (seq_ != null) {
+                output.writeMessage(1, getSeq());
+            }
+            if (goal_ != null) {
+                output.writeMessage(2, getGoal());
+            }
+            if (pos_ != null) {
+                output.writeMessage(3, getPos());
+            }
+            if (img_ != null) {
+                output.writeMessage(4, getImg());
+            }
+            unknownFields.writeTo(output);
+        }
+
+        @java.lang.Override
+        public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (seq_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(1, getSeq());
+            }
+            if (goal_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(2, getGoal());
+            }
+            if (pos_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(3, getPos());
+            }
+            if (img_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(4, getImg());
+            }
+            size += unknownFields.getSerializedSize();
+            memoizedSize = size;
+            return size;
+        }
+
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell)) {
+                return super.equals(obj);
+            }
+            org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell other = (org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell) obj;
+
+            boolean result = true;
+            result = result && (hasSeq() == other.hasSeq());
+            if (hasSeq()) {
+                result = result && getSeq()
+                        .equals(other.getSeq());
+            }
+            result = result && (hasGoal() == other.hasGoal());
+            if (hasGoal()) {
+                result = result && getGoal()
+                        .equals(other.getGoal());
+            }
+            result = result && (hasPos() == other.hasPos());
+            if (hasPos()) {
+                result = result && getPos()
+                        .equals(other.getPos());
+            }
+            result = result && (hasImg() == other.hasImg());
+            if (hasImg()) {
+                result = result && getImg()
+                        .equals(other.getImg());
+            }
+            result = result && unknownFields.equals(other.unknownFields);
+            return result;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+            if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            if (hasSeq()) {
+                hash = (37 * hash) + SEQ_FIELD_NUMBER;
+                hash = (53 * hash) + getSeq().hashCode();
+            }
+            if (hasGoal()) {
+                hash = (37 * hash) + GOAL_FIELD_NUMBER;
+                hash = (53 * hash) + getGoal().hashCode();
+            }
+            if (hasPos()) {
+                hash = (37 * hash) + POS_FIELD_NUMBER;
+                hash = (53 * hash) + getPos().hashCode();
+            }
+            if (hasImg()) {
+                hash = (37 * hash) + IMG_FIELD_NUMBER;
+                hash = (53 * hash) + getImg().hashCode();
+            }
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+        }
+
+        @java.lang.Override
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        @java.lang.Override
+        public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                    ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<Cell> getParserForType() {
+            return PARSER;
+        }
+
+        @java.lang.Override
+        public org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+        }
+
+        /**
+         * Protobuf type {@code org.yanzhe.robomaster.recodaemon.net.proto.Cell}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:org.yanzhe.robomaster.recodaemon.net.proto.Cell)
+                org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.CellOrBuilder {
+            private com.google.protobuf.UInt64Value seq_ = null;
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder> seqBuilder_;
+            private com.google.protobuf.UInt32Value goal_ = null;
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> goalBuilder_;
+            private com.google.protobuf.Int32Value pos_ = null;
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> posBuilder_;
+            private org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image img_ = null;
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image, org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.Builder, org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.ImageOrBuilder> imgBuilder_;
+
+            // Construct using org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell.newBuilder()
+            private Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+            }
+
+            public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+                return org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.internal_static_org_yanzhe_robomaster_recodaemon_net_proto_Cell_descriptor;
+            }
+
+            @java.lang.Override
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+                return org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.internal_static_org_yanzhe_robomaster_recodaemon_net_proto_Cell_fieldAccessorTable
+                        .ensureFieldAccessorsInitialized(
+                                org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell.class, org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell.Builder.class);
+            }
+
+            private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                }
+            }
+
+            @java.lang.Override
+            public Builder clear() {
+                super.clear();
+                if (seqBuilder_ == null) {
+                    seq_ = null;
+                } else {
+                    seq_ = null;
+                    seqBuilder_ = null;
+                }
+                if (goalBuilder_ == null) {
+                    goal_ = null;
+                } else {
+                    goal_ = null;
+                    goalBuilder_ = null;
+                }
+                if (posBuilder_ == null) {
+                    pos_ = null;
+                } else {
+                    pos_ = null;
+                    posBuilder_ = null;
+                }
+                if (imgBuilder_ == null) {
+                    img_ = null;
+                } else {
+                    img_ = null;
+                    imgBuilder_ = null;
+                }
+                return this;
+            }
+
+            @java.lang.Override
+            public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+                return org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.internal_static_org_yanzhe_robomaster_recodaemon_net_proto_Cell_descriptor;
+            }
+
+            @java.lang.Override
+            public org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell getDefaultInstanceForType() {
+                return org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell.getDefaultInstance();
+            }
+
+            @java.lang.Override
+            public org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell build() {
+                org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell result = buildPartial();
+                if (!result.isInitialized()) {
+                    throw newUninitializedMessageException(result);
+                }
+                return result;
+            }
+
+            @java.lang.Override
+            public org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell buildPartial() {
+                org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell result = new org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell(this);
+                if (seqBuilder_ == null) {
+                    result.seq_ = seq_;
+                } else {
+                    result.seq_ = seqBuilder_.build();
+                }
+                if (goalBuilder_ == null) {
+                    result.goal_ = goal_;
+                } else {
+                    result.goal_ = goalBuilder_.build();
+                }
+                if (posBuilder_ == null) {
+                    result.pos_ = pos_;
+                } else {
+                    result.pos_ = posBuilder_.build();
+                }
+                if (imgBuilder_ == null) {
+                    result.img_ = img_;
+                } else {
+                    result.img_ = imgBuilder_.build();
+                }
+                onBuilt();
+                return result;
+            }
+
+            @java.lang.Override
+            public Builder clone() {
+                return super.clone();
+            }
+
+            @java.lang.Override
+            public Builder setField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.setField(field, value);
+            }
+
+            @java.lang.Override
+            public Builder clearField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return super.clearField(field);
+            }
+
+            @java.lang.Override
+            public Builder clearOneof(
+                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return super.clearOneof(oneof);
+            }
+
+            @java.lang.Override
+            public Builder setRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    int index, java.lang.Object value) {
+                return super.setRepeatedField(field, index, value);
+            }
+
+            @java.lang.Override
+            public Builder addRepeatedField(
+                    com.google.protobuf.Descriptors.FieldDescriptor field,
+                    java.lang.Object value) {
+                return super.addRepeatedField(field, value);
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell) {
+                    return mergeFrom((org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell) other);
+                } else {
+                    super.mergeFrom(other);
+                    return this;
+                }
+            }
+
+            public Builder mergeFrom(org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell other) {
+                if (other == org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell.getDefaultInstance())
+                    return this;
+                if (other.hasSeq()) {
+                    mergeSeq(other.getSeq());
+                }
+                if (other.hasGoal()) {
+                    mergeGoal(other.getGoal());
+                }
+                if (other.hasPos()) {
+                    mergePos(other.getPos());
+                }
+                if (other.hasImg()) {
+                    mergeImg(other.getImg());
+                }
+                this.mergeUnknownFields(other.unknownFields);
+                onChanged();
+                return this;
+            }
+
+            @java.lang.Override
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            @java.lang.Override
+            public Builder mergeFrom(
+                    com.google.protobuf.CodedInputStream input,
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                    throws java.io.IOException {
+                org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell parsedMessage = null;
+                try {
+                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                    parsedMessage = (org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell) e.getUnfinishedMessage();
+                    throw e.unwrapIOException();
+                } finally {
+                    if (parsedMessage != null) {
+                        mergeFrom(parsedMessage);
+                    }
+                }
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.UInt64Value seq = 1;</code>
+             */
+            public boolean hasSeq() {
+                return seqBuilder_ != null || seq_ != null;
+            }
+
+            /**
+             * <code>.google.protobuf.UInt64Value seq = 1;</code>
+             */
+            public com.google.protobuf.UInt64Value getSeq() {
+                if (seqBuilder_ == null) {
+                    return seq_ == null ? com.google.protobuf.UInt64Value.getDefaultInstance() : seq_;
+                } else {
+                    return seqBuilder_.getMessage();
+                }
+            }
+
+            /**
+             * <code>.google.protobuf.UInt64Value seq = 1;</code>
+             */
+            public Builder setSeq(
+                    com.google.protobuf.UInt64Value.Builder builderForValue) {
+                if (seqBuilder_ == null) {
+                    seq_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    seqBuilder_.setMessage(builderForValue.build());
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.UInt64Value seq = 1;</code>
+             */
+            public Builder setSeq(com.google.protobuf.UInt64Value value) {
+                if (seqBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    seq_ = value;
+                    onChanged();
+                } else {
+                    seqBuilder_.setMessage(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.UInt64Value seq = 1;</code>
+             */
+            public Builder mergeSeq(com.google.protobuf.UInt64Value value) {
+                if (seqBuilder_ == null) {
+                    if (seq_ != null) {
+                        seq_ =
+                                com.google.protobuf.UInt64Value.newBuilder(seq_).mergeFrom(value).buildPartial();
+                    } else {
+                        seq_ = value;
+                    }
+                    onChanged();
+                } else {
+                    seqBuilder_.mergeFrom(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.UInt64Value seq = 1;</code>
+             */
+            public Builder clearSeq() {
+                if (seqBuilder_ == null) {
+                    seq_ = null;
+                    onChanged();
+                } else {
+                    seq_ = null;
+                    seqBuilder_ = null;
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.UInt64Value seq = 1;</code>
+             */
+            public com.google.protobuf.UInt64Value.Builder getSeqBuilder() {
+
+                onChanged();
+                return getSeqFieldBuilder().getBuilder();
+            }
+
+            /**
+             * <code>.google.protobuf.UInt64Value seq = 1;</code>
+             */
+            public com.google.protobuf.UInt64ValueOrBuilder getSeqOrBuilder() {
+                if (seqBuilder_ != null) {
+                    return seqBuilder_.getMessageOrBuilder();
+                } else {
+                    return seq_ == null ?
+                            com.google.protobuf.UInt64Value.getDefaultInstance() : seq_;
+                }
+            }
+
+            /**
+             * <code>.google.protobuf.UInt64Value seq = 1;</code>
+             */
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder>
+            getSeqFieldBuilder() {
+                if (seqBuilder_ == null) {
+                    seqBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                            com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder>(
+                            getSeq(),
+                            getParentForChildren(),
+                            isClean());
+                    seq_ = null;
+                }
+                return seqBuilder_;
+            }
+
+            /**
+             * <code>.google.protobuf.UInt32Value goal = 2;</code>
+             */
+            public boolean hasGoal() {
+                return goalBuilder_ != null || goal_ != null;
+            }
+
+            /**
+             * <code>.google.protobuf.UInt32Value goal = 2;</code>
+             */
+            public com.google.protobuf.UInt32Value getGoal() {
+                if (goalBuilder_ == null) {
+                    return goal_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : goal_;
+                } else {
+                    return goalBuilder_.getMessage();
+                }
+            }
+
+            /**
+             * <code>.google.protobuf.UInt32Value goal = 2;</code>
+             */
+            public Builder setGoal(
+                    com.google.protobuf.UInt32Value.Builder builderForValue) {
+                if (goalBuilder_ == null) {
+                    goal_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    goalBuilder_.setMessage(builderForValue.build());
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.UInt32Value goal = 2;</code>
+             */
+            public Builder setGoal(com.google.protobuf.UInt32Value value) {
+                if (goalBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    goal_ = value;
+                    onChanged();
+                } else {
+                    goalBuilder_.setMessage(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.UInt32Value goal = 2;</code>
+             */
+            public Builder mergeGoal(com.google.protobuf.UInt32Value value) {
+                if (goalBuilder_ == null) {
+                    if (goal_ != null) {
+                        goal_ =
+                                com.google.protobuf.UInt32Value.newBuilder(goal_).mergeFrom(value).buildPartial();
+                    } else {
+                        goal_ = value;
+                    }
+                    onChanged();
+                } else {
+                    goalBuilder_.mergeFrom(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.UInt32Value goal = 2;</code>
+             */
+            public Builder clearGoal() {
+                if (goalBuilder_ == null) {
+                    goal_ = null;
+                    onChanged();
+                } else {
+                    goal_ = null;
+                    goalBuilder_ = null;
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.UInt32Value goal = 2;</code>
+             */
+            public com.google.protobuf.UInt32Value.Builder getGoalBuilder() {
+
+                onChanged();
+                return getGoalFieldBuilder().getBuilder();
+            }
+
+            /**
+             * <code>.google.protobuf.UInt32Value goal = 2;</code>
+             */
+            public com.google.protobuf.UInt32ValueOrBuilder getGoalOrBuilder() {
+                if (goalBuilder_ != null) {
+                    return goalBuilder_.getMessageOrBuilder();
+                } else {
+                    return goal_ == null ?
+                            com.google.protobuf.UInt32Value.getDefaultInstance() : goal_;
+                }
+            }
+
+            /**
+             * <code>.google.protobuf.UInt32Value goal = 2;</code>
+             */
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder>
+            getGoalFieldBuilder() {
+                if (goalBuilder_ == null) {
+                    goalBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                            com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder>(
+                            getGoal(),
+                            getParentForChildren(),
+                            isClean());
+                    goal_ = null;
+                }
+                return goalBuilder_;
+            }
+
+            /**
+             * <code>.google.protobuf.Int32Value pos = 3;</code>
+             */
+            public boolean hasPos() {
+                return posBuilder_ != null || pos_ != null;
+            }
+
+            /**
+             * <code>.google.protobuf.Int32Value pos = 3;</code>
+             */
+            public com.google.protobuf.Int32Value getPos() {
+                if (posBuilder_ == null) {
+                    return pos_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : pos_;
+                } else {
+                    return posBuilder_.getMessage();
+                }
+            }
+
+            /**
+             * <code>.google.protobuf.Int32Value pos = 3;</code>
+             */
+            public Builder setPos(
+                    com.google.protobuf.Int32Value.Builder builderForValue) {
+                if (posBuilder_ == null) {
+                    pos_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    posBuilder_.setMessage(builderForValue.build());
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.Int32Value pos = 3;</code>
+             */
+            public Builder setPos(com.google.protobuf.Int32Value value) {
+                if (posBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    pos_ = value;
+                    onChanged();
+                } else {
+                    posBuilder_.setMessage(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.Int32Value pos = 3;</code>
+             */
+            public Builder mergePos(com.google.protobuf.Int32Value value) {
+                if (posBuilder_ == null) {
+                    if (pos_ != null) {
+                        pos_ =
+                                com.google.protobuf.Int32Value.newBuilder(pos_).mergeFrom(value).buildPartial();
+                    } else {
+                        pos_ = value;
+                    }
+                    onChanged();
+                } else {
+                    posBuilder_.mergeFrom(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.Int32Value pos = 3;</code>
+             */
+            public Builder clearPos() {
+                if (posBuilder_ == null) {
+                    pos_ = null;
+                    onChanged();
+                } else {
+                    pos_ = null;
+                    posBuilder_ = null;
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.Int32Value pos = 3;</code>
+             */
+            public com.google.protobuf.Int32Value.Builder getPosBuilder() {
+
+                onChanged();
+                return getPosFieldBuilder().getBuilder();
+            }
+
+            /**
+             * <code>.google.protobuf.Int32Value pos = 3;</code>
+             */
+            public com.google.protobuf.Int32ValueOrBuilder getPosOrBuilder() {
+                if (posBuilder_ != null) {
+                    return posBuilder_.getMessageOrBuilder();
+                } else {
+                    return pos_ == null ?
+                            com.google.protobuf.Int32Value.getDefaultInstance() : pos_;
+                }
+            }
+
+            /**
+             * <code>.google.protobuf.Int32Value pos = 3;</code>
+             */
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>
+            getPosFieldBuilder() {
+                if (posBuilder_ == null) {
+                    posBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                            com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>(
+                            getPos(),
+                            getParentForChildren(),
+                            isClean());
+                    pos_ = null;
+                }
+                return posBuilder_;
+            }
+
+            /**
+             * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+             */
+            public boolean hasImg() {
+                return imgBuilder_ != null || img_ != null;
+            }
+
+            /**
+             * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+             */
+            public org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image getImg() {
+                if (imgBuilder_ == null) {
+                    return img_ == null ? org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.getDefaultInstance() : img_;
+                } else {
+                    return imgBuilder_.getMessage();
+                }
+            }
+
+            /**
+             * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+             */
+            public Builder setImg(
+                    org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.Builder builderForValue) {
+                if (imgBuilder_ == null) {
+                    img_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    imgBuilder_.setMessage(builderForValue.build());
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+             */
+            public Builder setImg(org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image value) {
+                if (imgBuilder_ == null) {
+                    if (value == null) {
+                        throw new NullPointerException();
+                    }
+                    img_ = value;
+                    onChanged();
+                } else {
+                    imgBuilder_.setMessage(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+             */
+            public Builder mergeImg(org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image value) {
+                if (imgBuilder_ == null) {
+                    if (img_ != null) {
+                        img_ =
+                                org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.newBuilder(img_).mergeFrom(value).buildPartial();
+                    } else {
+                        img_ = value;
+                    }
+                    onChanged();
+                } else {
+                    imgBuilder_.mergeFrom(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+             */
+            public Builder clearImg() {
+                if (imgBuilder_ == null) {
+                    img_ = null;
+                    onChanged();
+                } else {
+                    img_ = null;
+                    imgBuilder_ = null;
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+             */
+            public org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.Builder getImgBuilder() {
+
+                onChanged();
+                return getImgFieldBuilder().getBuilder();
+            }
+
+            /**
+             * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+             */
+            public org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.ImageOrBuilder getImgOrBuilder() {
+                if (imgBuilder_ != null) {
+                    return imgBuilder_.getMessageOrBuilder();
+                } else {
+                    return img_ == null ?
+                            org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.getDefaultInstance() : img_;
+                }
+            }
+
+            /**
+             * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+             */
+            private com.google.protobuf.SingleFieldBuilderV3<
+                    org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image, org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.Builder, org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.ImageOrBuilder>
+            getImgFieldBuilder() {
+                if (imgBuilder_ == null) {
+                    imgBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                            org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image, org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.Builder, org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.ImageOrBuilder>(
+                            getImg(),
+                            getParentForChildren(),
+                            isClean());
+                    img_ = null;
+                }
+                return imgBuilder_;
+            }
+
+            @java.lang.Override
+            public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:org.yanzhe.robomaster.recodaemon.net.proto.Cell)
+    }
+
+  }
+
+  // @@protoc_insertion_point(outer_class_scope)
 }

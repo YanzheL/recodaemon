@@ -10,7 +10,7 @@ import org.yanzhe.robomaster.recodaemon.core.processor.ImageProcessor;
 import org.yanzhe.robomaster.recodaemon.core.utils.CachedSingleton;
 import org.yanzhe.robomaster.recodaemon.core.utils.CoreUtils;
 import org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image;
-import org.yanzhe.robomaster.recodaemon.net.proto.TargetCellsProto.Cell;
+import org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.Cell;
 
 import java.util.List;
 
