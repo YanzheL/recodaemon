@@ -12,6 +12,7 @@ import static org.bytedeco.javacpp.opencv_core.CV_8UC;
 import static org.bytedeco.javacpp.opencv_core.Mat;
 
 public class CoreUtils {
+
   public static float[] findMaxPos(float[] buf) {
     int maxPos = -1;
     float max = 0;
@@ -22,7 +23,7 @@ public class CoreUtils {
         maxPos = i;
       }
     }
-      return new float[]{maxPos, max};
+    return new float[]{maxPos, max};
   }
 
   public static void writeToInputBuf(Iterable<byte[]> imgBatch, FloatBuffer buf) {
@@ -53,18 +54,18 @@ public class CoreUtils {
     showImgMat(imgData.getData().toByteArray());
   }
 
-    public static void showImgMat(Mat img) {
-        byte[] data = new byte[img.rows() * img.cols() * img.channels()];
-        img.data().get(data);
-        showImgMat(data);
-    }
+  public static void showImgMat(Mat img) {
+    byte[] data = new byte[img.rows() * img.cols() * img.channels()];
+    img.data().get(data);
+    showImgMat(data);
+  }
 
   public static void showImgMat(byte[] imgData) {
-      System.out.println();
+    System.out.println();
     int c = 0;
     for (byte b : imgData) {
       ++c;
-        System.out.format("%4d", 0xff & b);
+      System.out.format("%4d", 0xff & b);
       if (c % 28 == 0) System.out.println();
     }
   }
@@ -74,7 +75,7 @@ public class CoreUtils {
     int c = 0;
     for (int i = 0; i < len; ++i) {
       c++;
-        System.out.format("%4d", (int) buf.get(i));
+      System.out.format("%4d", (int) buf.get(i));
       if (c % 28 == 0) System.out.println();
     }
   }

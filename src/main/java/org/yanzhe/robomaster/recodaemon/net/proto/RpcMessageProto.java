@@ -873,11 +873,11 @@ public final class RpcMessageProto {
             return PARSER;
         }
 
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-        return this.unknownFields;
-    }
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+            return this.unknownFields;
+        }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -1645,11 +1645,11 @@ public final class RpcMessageProto {
 
         public static Builder newBuilder(org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RpcResponse prototype) {
             return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
+        }
 
-    public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RpcResponse getDefaultInstance() {
-        return DEFAULT_INSTANCE;
-    }
+        public static org.yanzhe.robomaster.recodaemon.net.proto.RpcMessageProto.RpcResponse getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
 
         public static com.google.protobuf.Parser<RpcResponse> parser() {
             return PARSER;
@@ -3757,21 +3757,6 @@ public final class RpcMessageProto {
             /**
              * <code>.google.protobuf.UInt64Value seq = 1;</code>
              */
-            public Builder setSeq(
-                    com.google.protobuf.UInt64Value.Builder builderForValue) {
-                if (seqBuilder_ == null) {
-                    seq_ = builderForValue.build();
-                    onChanged();
-                } else {
-                    seqBuilder_.setMessage(builderForValue.build());
-                }
-
-                return this;
-            }
-
-            /**
-             * <code>.google.protobuf.UInt64Value seq = 1;</code>
-             */
             public Builder setSeq(com.google.protobuf.UInt64Value value) {
                 if (seqBuilder_ == null) {
                     if (value == null) {
@@ -3781,6 +3766,21 @@ public final class RpcMessageProto {
                     onChanged();
                 } else {
                     seqBuilder_.setMessage(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.UInt64Value seq = 1;</code>
+             */
+            public Builder setSeq(
+                    com.google.protobuf.UInt64Value.Builder builderForValue) {
+                if (seqBuilder_ == null) {
+                    seq_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    seqBuilder_.setMessage(builderForValue.build());
                 }
 
                 return this;
@@ -3879,21 +3879,6 @@ public final class RpcMessageProto {
             /**
              * <code>.google.protobuf.UInt32Value goal = 2;</code>
              */
-            public Builder setGoal(
-                    com.google.protobuf.UInt32Value.Builder builderForValue) {
-                if (goalBuilder_ == null) {
-                    goal_ = builderForValue.build();
-                    onChanged();
-                } else {
-                    goalBuilder_.setMessage(builderForValue.build());
-                }
-
-                return this;
-            }
-
-            /**
-             * <code>.google.protobuf.UInt32Value goal = 2;</code>
-             */
             public Builder setGoal(com.google.protobuf.UInt32Value value) {
                 if (goalBuilder_ == null) {
                     if (value == null) {
@@ -3903,6 +3888,21 @@ public final class RpcMessageProto {
                     onChanged();
                 } else {
                     goalBuilder_.setMessage(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.UInt32Value goal = 2;</code>
+             */
+            public Builder setGoal(
+                    com.google.protobuf.UInt32Value.Builder builderForValue) {
+                if (goalBuilder_ == null) {
+                    goal_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    goalBuilder_.setMessage(builderForValue.build());
                 }
 
                 return this;
@@ -4001,21 +4001,6 @@ public final class RpcMessageProto {
             /**
              * <code>.google.protobuf.Int32Value pos = 3;</code>
              */
-            public Builder setPos(
-                    com.google.protobuf.Int32Value.Builder builderForValue) {
-                if (posBuilder_ == null) {
-                    pos_ = builderForValue.build();
-                    onChanged();
-                } else {
-                    posBuilder_.setMessage(builderForValue.build());
-                }
-
-                return this;
-            }
-
-            /**
-             * <code>.google.protobuf.Int32Value pos = 3;</code>
-             */
             public Builder setPos(com.google.protobuf.Int32Value value) {
                 if (posBuilder_ == null) {
                     if (value == null) {
@@ -4025,6 +4010,21 @@ public final class RpcMessageProto {
                     onChanged();
                 } else {
                     posBuilder_.setMessage(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.google.protobuf.Int32Value pos = 3;</code>
+             */
+            public Builder setPos(
+                    com.google.protobuf.Int32Value.Builder builderForValue) {
+                if (posBuilder_ == null) {
+                    pos_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    posBuilder_.setMessage(builderForValue.build());
                 }
 
                 return this;
@@ -4123,21 +4123,6 @@ public final class RpcMessageProto {
             /**
              * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
              */
-            public Builder setImg(
-                    org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.Builder builderForValue) {
-                if (imgBuilder_ == null) {
-                    img_ = builderForValue.build();
-                    onChanged();
-                } else {
-                    imgBuilder_.setMessage(builderForValue.build());
-                }
-
-                return this;
-            }
-
-            /**
-             * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
-             */
             public Builder setImg(org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image value) {
                 if (imgBuilder_ == null) {
                     if (value == null) {
@@ -4147,6 +4132,21 @@ public final class RpcMessageProto {
                     onChanged();
                 } else {
                     imgBuilder_.setMessage(value);
+                }
+
+                return this;
+            }
+
+            /**
+             * <code>.org.yanzhe.robomaster.recodaemon.net.proto.Image img = 4;</code>
+             */
+            public Builder setImg(
+                    org.yanzhe.robomaster.recodaemon.net.proto.ImageProto.Image.Builder builderForValue) {
+                if (imgBuilder_ == null) {
+                    img_ = builderForValue.build();
+                    onChanged();
+                } else {
+                    imgBuilder_.setMessage(builderForValue.build());
                 }
 
                 return this;
@@ -4226,21 +4226,21 @@ public final class RpcMessageProto {
 
             @java.lang.Override
             public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.setUnknownFieldsProto3(unknownFields);
+            }
 
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
+            @java.lang.Override
+            public final Builder mergeUnknownFields(
+                    final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return super.mergeUnknownFields(unknownFields);
+            }
 
 
-      // @@protoc_insertion_point(builder_scope:org.yanzhe.robomaster.recodaemon.net.proto.Cell)
+            // @@protoc_insertion_point(builder_scope:org.yanzhe.robomaster.recodaemon.net.proto.Cell)
+        }
+
     }
 
-  }
-
-  // @@protoc_insertion_point(outer_class_scope)
+    // @@protoc_insertion_point(outer_class_scope)
 }
